@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta content="telephone=yes" name="format-detection" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="white">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<title>人才-面试中心</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="./css/max.css" /><!-- 主体样式 -->
+	<style>
+	.list-item{background:#fff;overflow: hidden;}
+	.item{position:relative;height:1.25rem;width:100%;font-size:0;border-bottom:1px solid #eee;transform:translateX(0px);transition:all .3s;}
+	.item span:nth-of-type(1){display:inline-block;font-size:14px;width:100%;line-height:0.9rem;}
+	.item span:nth-of-type(2){border-bottom:1px solid #eee;position:absolute;right:-60px;display:inline-block;font-size:0.28rem;width:60px;background:#b8b8b8;text-align: center;line-height: 1.25rem;color: white;}
+	.item span:nth-of-type(3){border-bottom:1px solid #eee;position:absolute;right:-120px;display:inline-block;font-size:0.28rem;width:60px;background:#ff9c2c;text-align: center;line-height:1.25rem;color: white;}
+	.item span:nth-of-type(4){border-bottom:1px solid #eee;position:absolute;right:-180px;display:inline-block;font-size:0.28rem;width:60px;background:#FC3964;text-align: center;line-height:1.25rem;color: white;}
+	.item.active{transform:translateX(-180px);transition:all .3s;} 
+	.newsnum {position: absolute;top: -.12rem;right: -.16rem;background: #FB3D36;line-height: .34rem;height: .3rem;border: .02rem solid #fff;color: #fff;font-size: .24rem;display: flex;align-items: center;justify-content: center;padding: 0 0.07rem;border-radius: 0.2rem;transform: scale(0.9);transform-origin: 0 0;}
+	.queshengImg{width: 2.6rem; height: 2.08rem;margin-top: 1.6rem;}
+	.queshengBox{display: flex;justify-content: flex-start;flex-direction: column;align-items: center;}
+	.queshengBox p{font-size: 0.28rem;color: #666666;}
+	.rightfloatBox{width: 0.5rem;height: 0.5rem;background: #F4F4F4;display: flex;border-radius: 50%;align-items: center;justify-content: center;}
+	.rightfloatIcon{width: 0.3rem;height: 0.3rem;}
+	.qrdetailsBtn{width:1.44rem;height:0.57rem;border-radius:0.34rem;font-size: 0.24rem;transform: scale(0.8);transform-origin:100%;outline: none;border: none;}
+	.detailsBtn{width:1.44rem;height:0.57rem;border: 1px solid #FC3964;border-radius:0.34rem;background: white;color: #FC3964;font-size: 0.24rem;transform: scale(0.8);transform-origin:100%;outline: none;}
+	.jricon{width:0.24rem ;height: 0.24rem;vertical-align: middle;}
+	.mswz{line-height: 0.35rem;width: 3.56rem;}
+	.msmasg{margin-left: 0.16rem;}
+	.mslable{background: #FFF5F8;padding: 0 0.12rem;border-radius: 0.2rem;display: flex;align-items: center;margin-top: 0.12rem;width: 2rem;color:#FC3964 ;}
+	.hmslable{background: #FFFBF5;padding: 0 0.12rem;border-radius: 0.2rem;display: flex;align-items: center;margin-top: 0.12rem;color: #FF9C2C;}
+	.lmslable{background: #F5F8FF;padding: 0 0.12rem;border-radius: 0.2rem;display: flex;align-items: center;margin-top: 0.12rem;color: #398EFC;}
+	.hsmslable{background:#F6F6F6;padding: 0 0.12rem;border-radius: 0.2rem;display: flex;align-items: center;margin-top: 0.12rem;color: #999999;}
+	.msimg{width: 1.2rem;height: 1.2rem;border-radius: 0.1rem;margin: 0.2rem 0 0.2rem 0.2rem;}
+	.ms,.rz,.hs,.td{padding-bottom: 0.5rem;}
+	.msBox{left: 0;right: 0;margin: auto;width: 7.1rem;height: 1.6rem;background: #FFFFFF;box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08);border-radius: 0.08rem;margin-top: 0.2rem;}
+	.redColor{font-size: 0.32rem;color:var(--themecolor,#FC3964) !important ;}
+	.interviewTab{margin: 0 0.2rem 0 0.4rem ;}
+	.time{white-space: nowrap}
+	.news{line-height: 0.5rem;margin-left: 0.2rem;max-width: 4.5rem;}
+	.tx_img{width: 0.9rem;height: 0.9rem;border-radius: 0.1rem;vertical-align: middle;}
+	.chatBox{margin: 0.2rem 0 0 0;}
+	.chatMaxBox{padding: 0.2rem 0.3rem 0 0.3rem;}
+	.chatMaxBox,.interview{min-height: 2rem;border-top-left-radius: 0.4rem;border-top-right-radius: 0.4rem;background:white;}
+	body{background: white;}
+	.redBg{position: absolute;background: var(--themecolor,#FC3964);/* background:blue; */height: 0.6rem;width: 100%;top: 0.8rem;z-index: -1;}
+	.titleBox{margin: 0 0.4rem;}
+	.SwitchBarRed {position: relative;color: #FFFFFF;}
+    .SwitchBarRed::after {content: '';position: absolute;left: 50%;bottom: 16%;transform: translateX(-50%);width: .36rem;height: .06rem;background: #FFFFFF;border-radius: 1rem;}
+	.SwitchBar {position: relative;background: white;display: flex;/* font-weight: bold; */background: var(--themecolor,#FC3964);color: #fb89a3;}
+	.msgBox{margin: 0 0.2rem;background: #FFFFFF;box-shadow: 0px 0px 24px rgb(0 0 0 / 12%);border-radius: 0.2rem;margin-top: 0.2rem;padding: 0 0.3rem;box-sizing: border-box;}
+	.qy_tx{width: 0.4rem;height: 0.4rem;border-radius: 50%;vertical-align: sub;margin-right: 0.08rem;}
+	.fuliBox{    padding: 0 0.1rem;border: #DCAE5D solid 0.02rem;height: 0.35rem;display: flex;align-items: center;transform-origin: bottom;margin-left: -0.04rem;}
+	.msgminBox{height: 1rem;line-height: 0.5rem;padding: 0.22rem 0 0.2rem 0;}
+	.leftBox,.right{position: absolute; margin-top: 0.9rem; z-index: 1; width: 100%;}
+	</style>
+
+	<body style="padding: 0;">
+		<div class="SwitchBar h_45 f_16" style="position: fixed; width: 100%; z-index: -1;">
+			<div class="flex_center_up_and_down titleBox" onclick="routeFun(this)">聊天</div>
+			<div class="flex_center_up_and_down titleBox SwitchBarRed" onclick="routeFun(this)">面试通知</div>
+			<div class="redBg"></div>
+		</div>
+		<div class="leftBox" style="display: none;">
+			<!-- 	<div class="list-item">
+			    <div class="item">
+			        <span>1这个是列表部分内容</span>
+			        <span class="topbtn">置顶</span>
+			        <span class="delbtn">删除</span>
+			    </div>
+			    <div class="item">
+			        <span>2这个是列表部分内容</span>
+			        <span class="topbtn">置顶</span>
+			        <span class="delbtn">删除</span>
+			    </div>
+			    <div class="item">
+			        <span>3这个是列表部分内容</span>
+			        <span class="topbtn">置顶</span>
+			        <span class="delbtn">删除</span>
+			    </div>
+			    <div class="item">
+			        <span>4这个是列表部分内容</span>
+			        <span class="topbtn">置顶</span>
+			        <span class="delbtn">删除</span>
+			    </div>
+			</div> -->
+			<div class="chatMaxBox of_y">
+
+				<div class="list-item">
+					<div class="item">
+						<span>
+							<div class="flex_align chatBox h_45">
+								<div style="position: relative;">
+									<img src="./img/88.png" class="tx_img" />
+									<div class="newsnum">6</div>
+								</div>
+
+								<div class="center_at_both_ends">
+									<div class="news">
+										<p class="f_14 c_h_33 ellipsis">通知</p>
+										<p class="f_12 c_h_99 ellipsis">39位企业发起了新发布</p>
+									</div>
+									<div class="f_12 c_h_99 time">7月18日</div>
+								</div>
+							</div>
+						</span>
+						<span class="Read">已读</span>
+						<span class="topbtn">置顶</span>
+						<span class="delbtn">删除</span>
+
+					</div>
+					<div class="item">
+						<span>
+							<div class="flex_align chatBox h_45">
+								<div style="position: relative;">
+									<img src="./img/88.png" class="tx_img" />
+									<div class="newsnum">6</div>
+								</div>
+
+								<div class="center_at_both_ends">
+									<div class="news">
+										<p class="f_14 c_h_33 ellipsis">通知</p>
+										<p class="f_12 c_h_99 ellipsis">39位企业发起了新发布</p>
+									</div>
+									<div class="f_12 c_h_99 time">7月18日</div>
+								</div>
+							</div>
+						</span>
+						<span class="Read">已读</span>
+						<span class="topbtn">置顶</span>
+						<span class="delbtn">删除</span>
+
+					</div>
+					<div class="item">
+						<span>
+							<div class="flex_align chatBox h_45">
+								<div style="position: relative;">
+									<img src="./img/88.png" class="tx_img" />
+									<div class="newsnum">8</div>
+								</div>
+								<div class="center_at_both_ends">
+									<div class="news">
+										<p class="f_14 c_h_33 ellipsis">嘟嘟瓜科美招聘会群</p>
+										<p class="f_12 c_h_99 ellipsis">冯丽华：请问公司待遇是怎样的呢？</p>
+									</div>
+									<div class="f_12 c_h_99 time">上午 10:13</div>
+								</div>
+							</div>
+						</span>
+						<span class="Read">已读</span>
+						<span class="topbtn">置顶</span>
+						<span class="delbtn">删除</span>
+
+					</div>
+					<div class="item">
+						<span>
+							<div class="flex_align chatBox h_45">
+								<div style="position: relative;">
+									<img src="./img/88.png" class="tx_img" />
+									<div class="newsnum">99+</div>
+								</div>
+								<div class="center_at_both_ends">
+									<div class="news">
+										<p class="f_14 c_h_33 ellipsis">招聘顾问</p>
+										<p class="f_12 c_h_99 ellipsis">我想知道8月份招聘会有哪些呢？</p>
+									</div>
+									<div class="f_12 c_h_99 time">下午 2:29</div>
+								</div>
+							</div>
+						</span>
+						<span class="Read">已读</span>
+						<span class="topbtn">置顶</span>
+						<span class="delbtn">删除</span>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="right">
+			<div class="interview ">
+				<div class="h_40 flex_align f_14">
+					<div class="interviewTab c_h_33 redColor">已投递</div>
+					<div class="interviewTab c_h_33 ">约面试</div>
+					<div class="interviewTab c_h_33">待入职</div>
+					<div class="interviewTab c_h_33">不合适</div>
+				</div>
+				<div class="td of_y">
+					<div class="queshengBox" style="display: none;">
+						<!-- 缺省页 -->
+						<img src="./img/quesheng.png" class="queshengImg" />
+						<p>您当前没有投过简历</p>
+						<p>请联系就业顾问</p>
+					</div>
+					<div class="h_115 msgBox">
+						<div class="msgminBox lower_line">
+							<div class="center_at_both_ends">
+								<span class="f_18 c_h_33">纹绣学徒</span>
+								<span class="f_16 c_r_FC">3K-6K/月</span>
+							</div>
+							<div class="center_at_both_ends">
+								<div class="flex">
+									<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+									<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+								</div>
+								<span class="f_14 c_h_99">已投递</span>
+							</div>
+						</div>
+						<div class="center_at_both_ends h_40">
+							<span class="f_16 c_h_33">
+								<a>
+									<img src="./img/矩形%2090.png" class="qy_tx" />
+									<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+									<img src="./img/jinru.svg" class="jricon" />
+								</a>
+							</span>
+						</div>
+					</div>
+
+					<div class="h_115 msgBox">
+						<div class="msgminBox lower_line">
+							<div class="center_at_both_ends">
+								<span class="f_18 c_h_33">纹绣学徒</span>
+								<span class="f_16 c_r_FC">3K-6K/月</span>
+							</div>
+							<div class="center_at_both_ends">
+								<div class="flex">
+									<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+									<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+								</div>
+								<span class="f_14 c_h_99">已投递</span>
+							</div>
+						</div>
+						<div class="center_at_both_ends h_40">
+							<span class="f_16 c_h_33">
+								<a>
+									<img src="./img/矩形%2090.png" class="qy_tx" />
+									<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+									<img src="./img/jinru.svg" class="jricon" />
+								</a>
+							</span>
+						</div>
+					</div>
+
+				</div>
+				<div class="ms of_y">
+					<div class="queshengBox" style="display: none;">
+						<!-- 缺省页 -->
+						<img src="./img/quesheng.png" class="queshengImg" />
+						<p>您当前没有投过简历</p>
+						<p>请联系就业顾问</p>
+					</div>
+
+					<div class="h_115 msgBox">
+						<div class="msgminBox lower_line">
+							<div class="center_at_both_ends">
+								<span class="f_18 c_h_33">纹绣学徒</span>
+								<span class="f_16 c_r_FC">3K-6K/月</span>
+							</div>
+							<div class="center_at_both_ends">
+								<div class="flex">
+									<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+									<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+								</div>
+								<span class="f_14 c_h_99">待面试</span>
+							</div>
+						</div>
+						<div class="center_at_both_ends h_40">
+							<span class="f_16 c_h_33">
+								<a>
+									<img src="./img/矩形%2090.png" class="qy_tx" />
+									<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+									<img src="./img/jinru.svg" class="jricon" />
+								</a>
+							</span>
+						</div>
+					</div>
+
+				<div class="h_115 msgBox">
+					<div class="msgminBox lower_line">
+						<div class="center_at_both_ends">
+							<span class="f_18 c_h_33">纹绣学徒</span>
+							<span class="f_16 c_r_FC">3K-6K/月</span>
+						</div>
+						<div class="center_at_both_ends">
+							<div class="flex">
+								<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+								<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+							</div>
+							<span class="f_14 c_h_99">待面试</span>
+						</div>
+					</div>
+					<div class="center_at_both_ends h_40">
+						<span class="f_16 c_h_33">
+							<a>
+								<img src="./img/矩形%2090.png" class="qy_tx" />
+								<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+								<img src="./img/jinru.svg" class="jricon" />
+							</a>
+						</span>
+					</div>
+				</div>
+
+				</div>
+				<div class="rz of_y">
+					<div class="queshengBox" style="display: none;">
+						<!-- 缺省页 -->
+						<img src="./img/quesheng.png" class="queshengImg" />
+						<p>您当前没有投过简历</p>
+						<p>请联系就业顾问</p>
+					</div>
+					
+				
+	                <div class="h_115 msgBox">
+						<div class="msgminBox lower_line">
+							<div class="center_at_both_ends">
+								<span class="f_18 c_h_33">纹绣学徒</span>
+								<span class="f_16 c_r_FC">3K-6K/月</span>
+							</div>
+							<div class="center_at_both_ends">
+								<div class="flex">
+									<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+									<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+								</div>
+								<span class="f_14 c_h_99">待入职</span>
+							</div>
+						</div>
+						<div class="center_at_both_ends h_40">
+							<span class="f_16 c_h_33">
+								<a>
+									<img src="./img/矩形%2090.png" class="qy_tx" />
+									<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+									<img src="./img/jinru.svg" class="jricon" />
+								</a>
+							</span>
+							<div class="flex_align">
+								<button type="button" class="qrdetailsBtn c_bg_FC c_h_FF">同意入职</button>
+								<button type="button" class="detailsBtn ">查看详情</button>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="h_115 msgBox">
+						<div class="msgminBox lower_line">
+							<div class="center_at_both_ends">
+								<span class="f_18 c_h_33">纹绣学徒</span>
+								<span class="f_16 c_r_FC">3K-6K/月</span>
+							</div>
+							<div class="center_at_both_ends">
+								<div class="flex">
+									<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+									<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+								</div>
+								<span class="f_14 c_h_99">待入职</span>
+							</div>
+						</div>
+						<div class="center_at_both_ends h_40">
+							<span class="f_16 c_h_33">
+								<a>
+									<img src="./img/矩形%2090.png" class="qy_tx" />
+									<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+									<img src="./img/jinru.svg" class="jricon" />
+								</a>
+							</span>
+							<div class="flex_align">
+								<button type="button" class="qrdetailsBtn c_bg_FC c_h_FF">同意入职</button>
+								<button type="button" class="detailsBtn ">查看详情</button>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="hs of_y">
+					<div class="queshengBox" style="display: none;">
+						<!-- 缺省页 -->
+						<img src="./img/quesheng.png" class="queshengImg" />
+						<p>您当前没有投过简历</p>
+						<p>请联系就业顾问</p>
+					</div>
+				
+
+					<div class="h_115 msgBox">
+						<div class="msgminBox lower_line">
+							<div class="center_at_both_ends">
+								<span class="f_18 c_h_33">纹绣学徒</span>
+								<span class="f_16 c_r_FC">3K-6K/月</span>
+							</div>
+							<div class="center_at_both_ends">
+								<div class="flex">
+									<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+									<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+								</div>
+								<span class="f_14 c_h_99">人才已放弃</span>
+							</div>
+						</div>
+						<div class="center_at_both_ends h_40">
+							<span class="f_16 c_h_33">
+								<a>
+									<img src="./img/矩形%2090.png" class="qy_tx" />
+									<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+									<img src="./img/jinru.svg" class="jricon" />
+								</a>
+							</span>
+							<div class="flex_align">
+								<div class="rightfloatBox"><img src="./icon/lajitong.svg" class="rightfloatIcon" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+				<div class="h_115 msgBox">
+					<div class="msgminBox lower_line">
+						<div class="center_at_both_ends">
+							<span class="f_18 c_h_33">纹绣学徒</span>
+							<span class="f_16 c_r_FC">3K-6K/月</span>
+						</div>
+						<div class="center_at_both_ends">
+							<div class="flex">
+								<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+								<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+							</div>
+							<span class="f_14 c_h_99">面试不通过</span>
+						</div>
+					</div>
+					<div class="center_at_both_ends h_40">
+						<span class="f_16 c_h_33">
+							<a>
+								<img src="./img/矩形%2090.png" class="qy_tx" />
+								<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+								<img src="./img/jinru.svg" class="jricon" />
+							</a>
+						</span>
+						<div class="flex_align">
+							<div class="rightfloatBox"><img src="./icon/lajitong.svg" class="rightfloatIcon" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="h_115 msgBox">
+					<div class="msgminBox lower_line">
+						<div class="center_at_both_ends">
+							<span class="f_18 c_h_33">纹绣学徒</span>
+							<span class="f_16 c_r_FC">3K-6K/月</span>
+						</div>
+						<div class="center_at_both_ends">
+							<div class="flex">
+								<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+								<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+							</div>
+							<span class="f_14 c_h_99">已离职</span>
+						</div>
+					</div>
+					<div class="center_at_both_ends h_40">
+						<span class="f_16 c_h_33">
+							<a>
+								<img src="./img/矩形%2090.png" class="qy_tx" />
+								<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+								<img src="./img/jinru.svg" class="jricon" />
+							</a>
+						</span>
+						<div class="flex_align">
+							<div class="rightfloatBox"><img src="./icon/lajitong.svg" class="rightfloatIcon" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="h_115 msgBox">
+					<div class="msgminBox lower_line">
+						<div class="center_at_both_ends">
+							<span class="f_18 c_h_33">纹绣学徒</span>
+							<span class="f_16 c_r_FC">3K-6K/月</span>
+						</div>
+						<div class="center_at_both_ends">
+							<div class="flex">
+								<div class="transformScale08 f_12 c_j_DCAE5D fuliBox">福利</div>
+								<div class="f_12 c_j_DCAE5D">五险一金、公司旅游</div>
+							</div>
+							<span class="f_14 c_h_99">企业不同意入职</span>
+						</div>
+					</div>
+					<div class="center_at_both_ends h_40">
+						<span class="f_16 c_h_33">
+							<a>
+								<img src="./img/矩形%2090.png" class="qy_tx" />
+								<span class="f_14 c_h_33 ellipsis">亚美健康美容中心</span>
+								<img src="./img/jinru.svg" class="jricon" />
+							</a>
+						</span>
+						<div class="flex_align">
+							<div class="rightfloatBox"><img src="./icon/lajitong.svg" class="rightfloatIcon" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/max.js"></script>
+	<script>
+		(function(select) {
+			//将DomList转化为数组,以便使用forEach方法遍历dom
+			var itembox = Array.prototype.slice.call(document.querySelectorAll(select), 0);
+
+			//使用forEach方法遍历dom
+			itembox.forEach(function(item, index, arr) {
+				console.log(item);
+				//小左边滑动
+				var startX, endX, movebox = item;
+				//触摸开始
+				function boxTouchStart(e) {
+					var touch = e.touches[0]; //获取触摸对象
+					startX = touch.pageX; //获取触摸坐标
+				}
+				//触摸移动
+				function boxTouchMove(e) {
+					var touch = e.touches[0];
+					endX = touch.pageX; //手指水平方向移动的距离
+				}
+				//触摸结束
+				function boxTouchEnd(e) {
+					/* console.log(startX+"start")
+					 console.log(endX+"end") */
+					//手指向左滑动
+					if (startX - endX >= 60) {
+						this.classList.add("active");
+						//手指向右滑动
+					} else {
+						this.classList.remove("active");
+					}
+				}
+
+				//滑动对象事件绑定
+				movebox.addEventListener("touchstart", boxTouchStart, false);
+				movebox.addEventListener("touchmove", boxTouchMove, false);
+				movebox.addEventListener("touchend", boxTouchEnd, false);
+
+				//点击删除按钮
+				movebox.querySelector(".delbtn").onclick = function() {
+					this.parentNode.parentNode.removeChild(this.parentNode);
+				}
+
+				//点击置顶按钮
+				movebox.querySelector(".topbtn").onclick = function() {
+					var parent = this.parentNode.parentNode;
+					parent.insertBefore(this.parentNode, parent.children[0]);
+					this.parentNode.classList.remove("active");
+				}
+
+				//点击置顶按钮
+				movebox.querySelector(".Read").onclick = function() {
+					let fspan = this.parentNode.children[0].children[0].children[0].children[1]
+					fspan.style.display = "none";
+					console.log(fspan, "fspan")
+					this.parentNode.classList.remove("active");
+				}
+
+			});
+		})(".list-item .item");
+
+
+		function routeFun(t) {
+			$('.flex_center_up_and_down').removeClass('SwitchBarRed')
+			$(t).addClass('SwitchBarRed')
+			if ($(t).text() === "聊天") {
+				$('.leftBox').show()
+				$('.right').hide()
+			} else {
+				$('.leftBox').hide()
+				$('.right').show()
+			}
+		}
+		$('.rz').hide();
+		$('.hs').hide();
+		$('.ms').hide();
+		$('.interviewTab').on('click', function() {
+			$('.interviewTab').removeClass('redColor')
+			$(this).addClass('redColor')
+			if ($(this).text() === '约面试') {
+				$('.ms').show();
+				$('.rz').hide();
+				$('.hs').hide();
+				$('.td').hide();
+			} else if ($(this).text() === '待入职') {
+				$('.ms').hide();
+				$('.rz').show();
+				$('.hs').hide();
+				$('.td').hide();
+			} else if ($(this).text() === '不合适') {
+				$('.ms').hide();
+				$('.rz').hide();
+				$('.hs').show();
+				$('.td').hide();
+			} else {
+				$('.ms').hide();
+				$('.rz').hide();
+				$('.hs').hide();
+				$('.td').show();
+			}
+		})
+	</script>
+</html>

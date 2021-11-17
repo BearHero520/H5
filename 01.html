@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>简历填写</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="./css/max.css" /><!-- 主体样式 -->
+	<link rel="stylesheet" type="text/css" href="./css/mui.picker.min.css" />
+	<style>
+	   body{ --themecolor:#FC3964; }
+	</style>
+	<body>
+		<div class="max_title_box">
+			<div class="flex_1"><img src="icon/Hero_title.svg" class="max_title_icon" onclick="back()"/></div>
+			<div class="flex_1 f_17 c_h_FF" >首页</div>
+			<div class="flex_1"></div>
+		</div>
+		
+		<div style="position: relative;">
+		<div class="firstBox">
+		<div class="max_box" style="padding-bottom: 0.2rem;">
+			<div class="h_45 lower_line">
+				<div class="f_16 c_h_33 input_text">基本资料</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">姓名</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入姓名" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;"/>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">性别</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="f_15 c_h_66  flex_align" style="margin-left: 0.3rem;">
+					<input type="radio" name="Gender" id="male" class="radioBtn" />
+					<label for="male" class="flex_align">男</label>
+					<input type="radio" name="Gender" id="female" class="radioBtn" checked style="margin-left: 0.5rem;"/>
+					<label for="female" class="flex_align">女</label>
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">出生年月</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" onclick="selectTime(this,'出生年月')" type="text" name="city"
+						placeholder="请选择" id="datatime" readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">手机号码</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入手机号码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="11"
+					class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;"/>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">联系邮箱</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入邮箱" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;"/>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">工作经验</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" id="Hero_one" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+		</div>
+		<div class="max_box" style="padding-bottom: 0.2rem;">
+			<div class="h_45 lower_line">
+				<div class="f_16 c_h_33 input_text">求职信息</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">求职意向</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" id="Hero_two" onclick="selectintention(this,'求职意向')" type="text" name="city" placeholder="请选择"
+						readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">工作性质</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="f_15 c_h_66  flex_align " style="margin-left: 0.3rem;">
+					<input type="radio" name="nature" id="full_time" class="radioBtn" checked/>
+					<label for="full_time" class="flex_align">全职</label>
+					<input type="radio" name="nature" id="part_time_job" class="radioBtn IV"  style="margin-left: 0.5rem;"/>
+					<label for="part_time_job" class="flex_align">兼职</label>
+					<input type="radio" name="nature" id="internship" class="radioBtn IV"  style="margin-left: 0.5rem;"/>
+					<label for="internship" class="flex_align">实习</label>
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">期望职位</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" id="choice" type="text"  placeholder="请选择" readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">期望薪酬</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" onclick="selectSalary(this,'期望薪酬')" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">期望行业</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" id="industry" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">期望城市</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" onclick="selectcity(this,'期望城市')" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+		</div>
+		<div class="max_box" style="padding-bottom: 0.2rem;">
+			<div class="h_45 lower_line">
+				<div class="f_16 c_h_33 input_text">教育背景</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">最高学历</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" id="education" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">毕业学校</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">就读时间</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<div class="f_15 c_h_66 flex_align">
+						<input class="no_style_input" id="stareTime" placeholder="开始时间"
+							style="width: 1.7rem;text-align: center;" onclick="selectTime(this,'开始时间')" readonly/>
+						<div class="occupation_line_box">
+							<div class="occupation_line"></div>
+						</div>
+						<input class="no_style_input" id="endTime" placeholder="结束时间"
+							style="width: 1.7rem;text-align: center;" onclick="selectTime(this,'结束时间')" readonly />
+					</div>
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">所学专业</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">
+			</div>
+		</div>
+		<div class="h_65 max_box flex_align">
+			<button type="button" class="MaxBtn c_bg_FC f_15" onclick="nextStep()">下一步</button>
+		</div>
+		</div>
+		<div class="secondBox switchBtnTwo">
+			<div class="max_box ">
+				<div class="h_45 center_at_both_ends openSwitchBox lower_line">
+					<div class="f_16 c_h_33 ">培训经历</div>
+					<div class="c_h_99 f_13 openSwitch">展开</div>
+				</div>
+				<div class="appendtextBox">
+					<div class="flex h_45 lower_line test">
+						<div class="f_15 c_h_33 input_text">机构名称</div>
+						<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33"
+							style="margin-left: 0.3rem;">
+							<div class="f_14 c_h_99" onclick="del__self_div('test')"><img src="icon/delete.svg" class="del_svg"/>删除</div>
+					</div>
+					<div class="flex h_45 lower_line test">
+						<div class="f_15 c_h_33 input_text">培训课程</div>
+						<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33"
+							style="margin-left: 0.3rem;">
+					</div>
+					<div class="flex h_45 lower_line test">
+						<div class="f_15 c_h_66 input_text">培训时间</div>
+						<div class="guide_icon">
+							<div class="f_15 c_h_66 flex_align">
+								<input class="no_style_input"  placeholder="开始时间"
+									style="width: 1.7rem;text-align: center;" onclick="selectTime(this,'开始时间')" readonly/>
+								<div class="occupation_line_box">
+									<div class="occupation_line"></div>
+								</div>
+								<input class="no_style_input" placeholder="结束时间"
+									style="width: 1.7rem;text-align: center;" onclick="selectTime(this,'结束时间')" readonly />
+							</div>
+						</div>
+					</div>
+					<div class="flex h_45 lower_line" style="justify-content: center;">
+						<div class="c_r_FC f_13 flex_align" onclick="addDiv(this)"><img src="./icon/jia.svg" class="addimg" />继续添加</div>
+					</div>
+				</div>
+		     
+			</div>
+			<div class="max_box ">
+				<div class="h_45 center_at_both_ends openSwitchBox lower_line">
+					<div class="f_16 c_h_33 ">工作经历</div>
+					<div class="c_h_99 f_13 openSwitch">展开</div>
+				</div>
+				<div class="appendtextBox">
+					<div class="flex h_45 lower_line test1">
+						<div class="f_15 c_h_33 input_text">公司名称</div>
+						<div class="c_r_FC f_15 ">*</div>
+						<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33"
+							style="margin-left: 0.3rem;">
+							<div class="f_14 c_h_99" onclick="del__self_div('test1')"><img src="icon/delete.svg" class="del_svg"/>删除</div>
+					</div>
+					<div class="flex h_45 lower_line test1">
+						<div class="f_15 c_h_33 input_text">职位名称</div>
+						<div class="c_r_FC f_15 ">*</div>
+						<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33"
+							style="margin-left: 0.3rem;">
+					</div>
+					<div class="flex h_45 lower_line test1">
+						<div class="f_15 c_h_66 input_text">工作时间</div>
+						<div class="c_r_FC f_15 ">*</div>
+						<div class="guide_icon">
+							<div class="f_15 c_h_66 flex_align">
+								<input class="no_style_input"  placeholder="开始时间"
+									style="width: 1.7rem;text-align: center;" onclick="selectTime(this,'开始时间')" readonly/>
+								<div class="occupation_line_box">
+									<div class="occupation_line"></div>
+								</div>
+								<input class="no_style_input" placeholder="结束时间"
+									style="width: 1.7rem;text-align: center;" onclick="selectTime(this,'结束时间')" readonly />
+							</div>
+						</div>
+					</div>
+					<div class="lower_line test1">
+						<div class="flex h_45">
+							<div class="f_15 c_h_33 input_text">工作职责</div>
+							<div class="c_r_FC f_15 ">*</div>
+						</div>
+						<textarea class="f_15 textarea_style" oninput="textareaFun(this)" placeholder="填写描述内容"
+							maxlength="200"></textarea>
+						<div class="c_h_BC f_12 flex_right" style="margin-bottom: 0.1rem">0/200</div>
+					</div>
+					<div class="flex h_45 lower_line" style="justify-content: center;">
+						<div class="c_r_FC f_13 flex_align" onclick="addDivTwo(this)"><img src="./icon/jia.svg" class="addimg" />继续添加</div>
+					</div>
+				</div>
+			 
+			</div>
+		<!-- 	<div class="max_box ">
+				<div class="h_45 center_at_both_ends openSwitchBox">
+					<div class="f_16 c_h_33 ">荣誉证书</div>
+					<div class="c_h_99 f_13 openSwitch">展开</div>
+				</div>
+				<div class="appendtextBox">
+					<div class="flex h_45 lower_line test3">
+						<div class="f_15 c_h_33 input_text">证书名称</div>
+						<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33"
+							style="margin-left: 0.3rem;">
+							<div class="f_14 c_h_99" onclick="del__self_div('test3')"><img src="icon/delete.svg" class="del_svg"/>删除</div>
+					</div>
+					<div class="flex h_45 lower_line test3">
+						<div class="f_15 c_h_66 input_text">获取时间</div>
+						<div class="guide_icon">
+							<div class="f_15 c_h_66 flex_align">
+								<input class="no_style_input"  placeholder="开始时间"
+									style="width: 1.7rem;text-align: center;" onclick="selectTime(this,'开始时间')" readonly/>
+								<div class="occupation_line_box">
+									<div class="occupation_line"></div>
+								</div>
+								<input class="no_style_input" placeholder="结束时间"
+									style="width: 1.7rem;text-align: center;" onclick="selectTime(this,'结束时间')" readonly />
+							</div>
+						</div>
+					</div>
+					<div class="flex h_45 lower_line" style="justify-content: center;">
+						<div class="c_r_FC f_13 flex_align" onclick="addDivCertificate(this)"><img src="./icon/jia.svg" class="addimg" />继续添加</div>
+					</div>
+				</div>
+			 
+			</div>-->
+		 <!-- 	<div class="max_box ">
+				<div class="h_45 center_at_both_ends openSwitchBox">
+					<div class="f_16 c_h_33 ">语言能力</div>
+					<div class="c_h_99 f_13 openSwitch">展开</div>
+				</div>
+				<div class="appendtextBox">
+					<div class="flex h_45 lower_line test4">
+						<div class="f_15 c_h_33 input_text">选择语言</div>
+						<input type="text" placeholder="请选择" onclick="langfun(this)" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">
+							<div class="f_14 c_h_99" onclick="del__self_div('test4')"><img src="icon/delete.svg" class="del_svg"/>删除</div>
+					</div>
+					<div class="flex h_45 lower_line test4">
+						<div class="f_15 c_h_66 input_text">熟练程度</div>
+						<div class="f_15 c_h_66  flex_align" style="margin-left: 0.3rem;">
+							<input type="radio" name="lang" id="introduction" class="radioBtn" />
+							<label for="introduction" class="flex_align">入门</label>
+							<input type="radio" name="lang" id="skilled" class="radioBtn" checked style="margin-left: 0.5rem;"/>
+							<label for="skilled" class="flex_align">熟练</label>
+							<input type="radio" name="lang" id="master" class="radioBtn" checked style="margin-left: 0.5rem;"/>
+							<label for="master" class="flex_align">精通</label>
+						</div>
+					</div>
+					<div class="flex h_45 lower_line" style="justify-content: center;">
+						<div class="c_r_FC f_13 flex_align" onclick="addDivLang(this)"><img src="./icon/jia.svg" class="addimg" />继续添加</div>
+					</div>
+				</div>
+			 
+			</div>
+			 --><div class="max_box">
+				<div class="flex h_45 lower_line">
+					<div class="f_15 c_h_33 input_text">特长标签</div>
+					<div class="c_r_FC f_15 ">*</div>
+					<div class="guide_icon">
+						<input class="no_style_input f_15 c_h_33" type="text" id="specialtyLabel" name="city"
+							placeholder="" readonly />
+					</div>
+				</div>
+			</div>
+		<!-- 	<div class="max_box ">
+				<div class="h_45 center_at_both_ends openSwitchBox">
+					<div class="f_16 c_h_33 ">作品介绍</div>
+					<div class="c_h_99 f_13 openSwitch">展开</div>
+				</div>
+				<div class="appendtextBox">
+					<div class="flex h_45 lower_line test2">
+						<div class="f_15 c_h_33 input_text">作品名称</div>
+						<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33"
+							style="margin-left: 0.3rem;">
+							<div class="f_14 c_h_99" onclick="del__self_div('test2')"><img src="icon/delete.svg" class="del_svg"/>删除</div>
+					</div>
+					<div class="lower_line test2">
+						<div class="flex h_45">
+							<div class="f_15 c_h_33 input_text">作品描述</div>
+						</div>
+						<textarea class="f_15 textarea_style" oninput="textareaFun(this)" placeholder="填写描述内容"
+							maxlength="200"></textarea>
+						<div class="c_h_BC f_12 flex_right" style="margin-bottom: 0.1rem">0/200</div>
+					</div>
+					<div class="IVBox test2">
+						<div class="flex h_45 lower_line ">
+							<div class="f_15 c_h_66 input_text">作品类型</div>
+							<div class="f_15 c_h_66  flex_align" style="margin-left: 0.3rem;">
+								<input type="radio" name="IV" id="img" class="radioBtn" value="1" onclick="IV(this)" checked/>
+								<label for="img" class="flex_align">图片</label>
+								<input type="radio" name="IV" id="video" class="radioBtn" value="2"onclick="IV(this)"  style="margin-left: 0.5rem;"/>
+								<label for="video" class="flex_align">视频</label>
+							</div>
+						</div>
+						<div class="img">
+							<div class="nineGonggeBox flex_align">
+								<div class="GonggeBox upBox">
+									<img src="./icon/tianjiatu1.png" class="GonggeImg">
+									<input type="file" name="" class="file filestyle" onchange="file(this,event,3)" accept="image/*" multiple />
+								</div>
+							</div>
+						</div>
+						<div class="video"  style="display: none;">
+							<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+								<div style="position: relative;">
+									<img src="./icon/shangchuan1.png" style="width: 4.9rem;height:2.76rem;" />
+									<input type="file" name="" class="head_file filestyle" accept="video/*" multiple />
+									<img src="./icon/delete.png" class="del_img" onclick="reduction_img('./icon/shangchuan1.png',event)"
+										style="display: none;" />
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="flex h_45 lower_line" style="justify-content: center;">
+						<div class="c_r_FC f_13 flex_align" onclick="addDivworks(this)"><img src="./icon/jia.svg" class="addimg" />继续添加</div>
+					</div>
+				</div>
+			 
+			</div> -->
+			
+			
+				<div class="h_65 max_box center_at_both_ends">
+				<button type="button" class="whiteMoreBtn c_bg_FF f_15 c_r_FC" onclick="lastStep()">上一步</button><button type="button" class="redMoreBtn c_bg_FC f_15" onclick="subBtn()">提交简历</button>
+			</div>
+		</div>
+		</div>
+		<!-- 弹窗层stare -->
+		<div class="Hero_maxBox_one" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left">工作经验<img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="max_box" style="max-height: 6rem; overflow-y: auto;padding: 0;">
+						<div class="f_15  flex c_h_99"
+							style="flex-wrap: wrap;justify-content: space-evenly;padding: 0 0.4rem;">
+							<div class="experience" onclick="categoryBtn(this)">
+								<span>无经验</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="experience" onclick="categoryBtn(this)">
+								<span>1年以下</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="experience" onclick="categoryBtn(this)">
+								<span>1-3年</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="experience" onclick="categoryBtn(this)">
+								<span>3-5年</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="experience" onclick="categoryBtn(this)">
+								<span>5-10年</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="experience" onclick="categoryBtn(this)">
+								<span>10年以上</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+						</div>
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15 experience_on">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹窗层end -->
+		<!-- 弹窗层2stare-->
+		<div class="Hero_maxBox_two" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left">求职意向<img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="max_box" style="max-height: 6rem; overflow-y: auto;padding: 0;">
+
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15 Job_intention">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹窗层2end -->
+		<!-- 时间||滑动弹窗stare-->
+	<!-- 	<div class="HeroMax" style="display: none;">
+			<div class="Bottom_pop_up" onclick="clean_up_mui()"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left"><span></span><img src="./icon/danccha.svg"
+						class="Hero_icon close_icon" onclick="clean_up_mui()"/></div>
+				<div class="content" style="height: 232px;">
+				</div>
+			</div>
+		</div> -->
+		<!--  时间||滑动弹窗end -->
+	    <!-- 弹窗层（期待行业）stare -->
+		<div class="Hero_maxBox_industry" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left">期待行业<span class="f_12 c_h_99" style="margin-left: 0.1rem;font-weight: normal;">最多可选3个</span><img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="max_box" style="max-height: 6rem; overflow-y: auto;padding: 0;">
+						<div class="f_15  flex c_h_99 categoriesBox">
+							<div class="categories" onclick="multipleCategories(this)">
+								<span>美容</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="categories" onclick="multipleCategories(this)">
+								<span>美发</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="categories" onclick="multipleCategories(this)">
+								<span>纹绣</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="categories" onclick="multipleCategories(this)">
+								<span>美甲</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="categories" onclick="multipleCategories(this)">
+								<span>其他</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<span style="width: 1.94rem;"></span>
+						</div>
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15 industry_on">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹窗层end -->
+		<!-- 弹窗层最高学历stare -->
+		<div class="Hero_maxBox_education" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left">最高学历<img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="max_box" style="max-height: 6rem; overflow-y: auto;padding: 0;">
+						<div class="f_15  flex c_h_99"
+							style="flex-wrap: wrap;justify-content: space-evenly;padding: 0 0.4rem;">
+							<div class="education" onclick="educationBtn(this)">
+								<span>无学历</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="education" onclick="educationBtn(this)">
+								<span>小学</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="education" onclick="educationBtn(this)">
+								<span>初中</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="education" onclick="educationBtn(this)">
+								<span>高中</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="education" onclick="educationBtn(this)">
+								<span>大专</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="education" onclick="educationBtn(this)">
+								<span>本科</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="education" onclick="educationBtn(this)">
+								<span>硕士</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="education" onclick="educationBtn(this)">
+								<span>博士</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="education" onclick="educationBtn(this)">
+								<span>教授</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+						</div>
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15 education_on">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹窗层end -->
+		<!-- 弹窗层(职位选择)stare -->
+		<!-- <div class="Hero_maxBox_choice" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left">选择职位<span class="c_h_99 f_12" style="margin-left: 0.1rem;font-weight:normal">最多可选5个</span><img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="flex" style="padding: 0 0.4rem;align-items: flex-start;">
+						<div class="f_16 c_h_99" style="width:1rem;">已选</div>
+						<div class="flex_1 HeroSelectBox">
+						</div>
+					</div>
+					<div class="max_box_z flex_align" style="height: 4.6rem;background: #F6F6F6;padding-right: 0rem;overflow: hidden;">
+						<div class="choice_left ">
+						</div>
+						<div class="choice_right flex_1 c_bg_FF of_y " style="height:100%;padding: 0 0.6rem;">
+						</div>
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15 choice_on">确定</button>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<!-- 弹窗层(职位选择)end -->
+		<!-- 弹窗层语言选择stare -->
+		<div class="Hero_maxBox_lang" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left">请选择语言<img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="max_box" style="max-height: 6rem; overflow-y: auto;padding: 0;">
+						<div class="f_15  flex c_h_99"
+							style="flex-wrap: wrap;justify-content: space-between;padding: 0 0.4rem;">
+							<div class="lang" onclick="langBtn(this)">
+								<span>英语</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="lang" onclick="langBtn(this)">
+								<span>普通话</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="lang" onclick="langBtn(this)">
+								<span>葡萄牙语</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="lang" onclick="langBtn(this)">
+								<span>法语</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="lang" onclick="langBtn(this)">
+								<span>英语四级</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="lang" onclick="langBtn(this)">
+								<span>英语六级</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							
+						</div>
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15 lang_on">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹窗层end -->
+		<!-- 弹窗层（特长标签）stare -->
+		<div class="Hero_maxBox_specialty" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left">特长标签<span class="f_12 c_h_99" style="margin-left: 0.1rem;font-weight: normal;">最多可选6个</span><img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="max_box" style="max-height: 6rem; overflow-y: auto;padding: 0;">
+						<div class="f_15  flex c_h_99 specialtyBox">
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>形象好</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>气质佳</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>能出差</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>很幽默</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>技术精悍</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>有亲和力</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>高学历</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>经验丰富</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>能加班</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>执行力强</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>有主动性</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>开朗</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<span style="width: 1.94rem;"></span>
+						</div>
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15 specialty_on">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹窗层end -->
+	
+	</body>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/max.js"></script>
+	<script src="js/city.js"></script>
+	<script src="./js/previewImage.min.js"></script><!-- 图片预览js -->
+	<script>window.FastClick = true;</script>
+	<script src="./js/mui.min.js"></script>
+	<!-- <script src="./js/mui.picker.js"></script> -->
+	<script src="./js/mui.picker.min.js"></script>
+	<script src="./js/mui_city.js"></script>
+	
+	<script>
+		// setTimeout(function(){
+		// 	nextStep()
+	    //快捷跳到第二页
+		// },1000)
+		/* 时间选择stare*/
+		function selectTime(e,name) {
+			console.log(name)
+			HeroFun.addtimeAndSlideBox(name)
+			/* $('.HeroMax div span').text(name)
+			$('.HeroMax').fadeIn(200); */
+			var time  = new mui.DtPicker({
+				type: 'date',
+				beginDate: new Date("1970-01-01"), //设置开始日期
+				endDate: new Date(), //设置结束日期
+			}).show(function(selectItems) {
+				$(e).val(selectItems.value)
+				$('.HeroMax').fadeOut(200);
+				HeroFun.clean_up_mui();
+			});
+		}
+		/* 时间范围选择end*/
+	
+		/* 弹出层1（工作经验 ）stare */
+		$('#Hero_one').on('click', function() {
+			$('.Hero_maxBox_one').fadeIn(200);
+			 $('body').addClass('body_no')
+		})
+
+		$('.Bottom_pop_up').on('click', function() {
+			 $('body').removeClass()
+			$('.Hero_maxBox_one').fadeOut(200);
+			
+		})
+		$('.Hero_icon').on('click', function() {
+			 $('body').removeClass()
+			$('.Hero_maxBox_one').fadeOut(200);
+		})
+		/* 弹出层1 end */
+		/* 弹出层（期望行业 ）stare */
+		$('#industry').on('click', function() {
+			$('.Hero_maxBox_industry').fadeIn(200);
+			$('body').addClass('body_no')
+		})
+		
+		$('.Bottom_pop_up').on('click', function() {
+			$('.Hero_maxBox_industry').fadeOut(200);
+			$('body').removeClass()
+		})
+		$('.Hero_icon').on('click', function() {
+			$('.Hero_maxBox_industry').fadeOut(200);
+			$('body').removeClass()
+		})
+		/* 弹出层 end */
+		/* 分类stare */
+		function categoryBtn(t) {
+			$('.experience').removeClass('experience_red');
+			$('.experience').children('img').css('visibility', 'hidden');
+			$(t).addClass('experience_red')
+			$(t).children('img').css('visibility', 'visible');
+		}
+		$('.experience_on').on('click', function() {
+			let experience_text = $('.experience_red span').text();
+			$("#Hero_one").val(experience_text);
+			$('.Hero_maxBox_one').fadeOut(200);
+			$('body').removeClass()
+		})
+		/* 分类end */
+		/* 期望行业stare */
+		var categoriesArr=[];/* 放具体数据的 */
+		var categoriesIndex=[];/* 历史操作步骤条 */
+		var newtemp=[];/* 放最新的下标 */
+		function multipleCategories(t){
+			/* console.log($(e.target)) */
+			$(t).toggleClass('categories_red')
+			$(t).children('img').toggleClass('show')
+			
+		    categoriesArr.push($(t).find('span').text())
+			
+			if(!$(t).hasClass('categories_red')){
+				categoriesArr=categoriesArr.filter(item=>item!=$(t).find('span').text())
+			}
+			if(categoriesArr.length>3){
+				categoriesArr.shift();
+			}
+			/* ========================================= */
+			let oldtemp=[]/* 临时数据做对比 */
+			  $(".categoriesBox div").each(function(i,o){
+			      if($(o).hasClass("categories_red")){
+					  oldtemp.push(i)
+				  }
+			   });
+			   let newList = oldtemp.filter(item=>{
+			       return categoriesIndex.indexOf(item) === -1
+			   })
+			   let dellist = newtemp.filter(item=>{
+			       return oldtemp.indexOf(item) === -1
+			   })
+			    categoriesIndex=[...new Set([...categoriesIndex, ...newList])]
+			   
+			   if(dellist.length>0 && newList.length==0){
+				   categoriesIndex=categoriesIndex.filter(t=>{
+					   return dellist.indexOf(t) === -1
+				   })
+			   }
+			   newtemp=oldtemp;/* 交换数据 */
+			if(categoriesIndex.length>3){
+				  let index=categoriesIndex[0];
+				  $(".categoriesBox div").eq(index).toggleClass('categories_red')
+				  $(".categoriesBox div img").eq(index).toggleClass('show')
+				  categoriesIndex.shift();
+			   }
+		}
+        $('.industry_on').on('click', function() {
+			$("#industry").val(categoriesArr.toString().replace(/,/g,"/"))
+			$('.Hero_maxBox_industry').fadeOut(200);
+			$('body').removeClass()
+			})
+			/* 期望行业end */
+			
+		/* 弹出层2（求职意向） stare */
+		function selectintention(e,name){
+			HeroFun.addtimeAndSlideBox(name)
+			$('body').addClass('body_no')
+			var picker = new mui.PopPicker();
+			picker.setData([{
+			    value: "0",
+			    text: "离职-随时到岗",
+			}, {
+			    value: "1",
+			    text: "在职-月内到岗"
+			}, {
+			    value: "2",
+			    text: "在职-考虑机会"
+			}, {
+			    value: "3",
+			    text: "在职-暂不考虑"
+			}])
+			picker.pickers[0].setSelectedIndex(0, 2000);
+			picker.show(function(SelectedItem) {
+			    $(e).val(SelectedItem[0].text)
+				$('.HeroMax').fadeOut(200);
+				clean_up_mui();
+			})
+		}
+		/* 弹出层2 end */
+
+	/* 弹出层2（期望薪资） stare */
+	function selectSalary(e,name){
+		HeroFun.addtimeAndSlideBox(name)
+		$('body').addClass('body_no')
+		let temp=[];
+		for(var i=1;i<50;i++){
+			let rom={}
+			let childBox=[];
+			rom.value=i;
+			rom.text=i+'K';
+			for(let a=i+1;a<=50;a++){
+				let child={}
+				child.value=a;
+				child.text=a+'K';
+				childBox.push(child)
+			}
+			rom.children=childBox;
+			temp.push(rom)
+		}
+		var picker = new mui.PopPicker({
+		    layer: 2
+		});
+		    picker.setData(temp)
+		picker.pickers[0].setSelectedIndex(1);
+		picker.pickers[1].setSelectedIndex(7);
+		picker.show(function(SelectedItem) {
+			console.log(SelectedItem[0])
+			$(e).val(SelectedItem[0].text+' ~ '+SelectedItem[1].text)
+			$('.HeroMax').fadeOut(200);
+			HeroFun.clean_up_mui()
+		})
+		   
+		
+	}
+	/* 弹出层 end */
+	/* 期望城市stare */
+	function selectcity(e,name){
+		HeroFun.addtimeAndSlideBox(name)
+		$('body').addClass('body_no')
+		
+		let pickera = new mui.PopPicker({
+		    layer: 3
+		});
+		    pickera.setData(cityData3)
+			       pickera.pickers[0].setSelectedValue('430000', 200);
+			 setTimeout(function () {
+					   pickera.pickers[1].setSelectedValue('430900', 200);
+			        setTimeout(function () {
+					   pickera.pickers[2].setSelectedValue('430921', 200);
+			        },400);
+			    },400);
+			  
+			
+			
+		/* picker.pickers[0].setSelectedIndex(1);
+		picker.pickers[1].setSelectedIndex(7); */
+		pickera.show(function(SelectedItem) {
+			    console.log(SelectedItem[0].value,SelectedItem[1].value,SelectedItem[2].value);//zz 
+			$(e).val(SelectedItem[0].text+' '+SelectedItem[1].text+' '+SelectedItem[2].text)
+			$('.HeroMax').fadeOut(200);
+			HeroFun.clean_up_mui()
+		})
+		   
+		
+	}
+	
+	/* 期望城市end */
+	/* 最高学历stare */
+	$('#education').on('click', function() {
+		$('.Hero_maxBox_education').fadeIn(200);
+		$('body').addClass('body_no')
+	})
+	
+	$('.Bottom_pop_up').on('click', function() {
+		$('.Hero_maxBox_education').fadeOut(200);
+		$('body').removeClass()
+	})
+	$('.Hero_icon').on('click', function() {
+		$('.Hero_maxBox_education').fadeOut(200);
+		$('body').removeClass()
+	})
+	function educationBtn(t){
+		$('.education').removeClass('education_red');
+			$('.education').children('img').css('visibility', 'hidden');
+			$(t).addClass('education_red')
+			$(t).children('img').css('visibility', 'visible');
+		}
+		$('.education_on').on('click', function() {
+			let experience_text = $('.education_red span').text();
+			$("#education").val(experience_text);
+			$('.Hero_maxBox_education').fadeOut(200);
+			$('body').removeClass()
+		})
+	/* 最高学历end */
+	/* 选择语言stare */
+	var lang//将点击对应的input储存起来，因为循环的原因，将来赋值用
+	function langfun(t){
+		$('.Hero_maxBox_lang').fadeIn(200);
+		$('body').addClass('body_no')
+		lang=t;
+	}
+
+	
+	$('.Bottom_pop_up').on('click', function() {
+		$('.Hero_maxBox_lang').fadeOut(200);
+		$('body').removeClass()
+	})
+	$('.Hero_icon').on('click', function() {
+		$('.Hero_maxBox_lang').fadeOut(200);
+		$('body').removeClass()
+	})
+	function langBtn(t){
+		$('.lang').removeClass('lang_red');
+			$('.lang').children('img').css('visibility', 'hidden');
+			$(t).addClass('lang_red')
+			$(t).children('img').css('visibility', 'visible');
+		}
+		$('.lang_on').on('click', function() {
+			let lang_text = $('.lang_red span').text();
+			console.log(lang)
+			$(lang).val(lang_text);
+			$('.Hero_maxBox_lang').fadeOut(200);
+			$('body').removeClass()
+		})
+	/* 最高学历end */
+	/* 职位选择stare */
+	$('#choice').on('click', function() {
+		 console.log($(this).data('value')) 
+		$('.Hero_maxBox_choice').fadeIn(200);
+		$('body').addClass('body_no')
+		/* ================ */
+		var HeroArrofchoice=[
+			    {
+				type:"美容类",
+				value:"1",
+				son:[
+					{name:"不限",value:"4"},
+					{name:"美发学徒",value:"5"},
+					{name:"美容师",value:"6"},
+					{name:"美容导师",value:"7"},
+					{name:"美容顾问",value:"8"},
+					],
+				},
+				{
+				type:"美发类",
+				value:"2",
+				son:[
+					{name:"不限",value:"9"},
+					{name:"搞事情",value:"10"},
+					{name:"村上春树",value:"11"},
+					{name:"哈哈哈哈",value:"12"},
+					{name:"OK导师",value:"13"},
+					{name:"就是玩",value:"14"},
+					],
+				},
+				{
+				type:"纹绣类",
+				value:"3",
+				son:[
+					{name:"树看",value:"15"},
+					{name:"测试1",value:"16"},
+					{name:"测试2",value:"17"},
+					{name:"测试3",value:"18"},
+					{name:"测试4",value:"19"},
+					{name:"测试5",value:"20"},
+					{name:"测试6",value:"21"},
+					{name:"测试7",value:"22"},
+					],
+				},
+			]
+			
+			  /* $(this).data('value','6666'); */
+			HeroFun.handleArr(HeroArrofchoice,this,5);
+			/* $(this).val()
+			let num= $(this).val().replace(/(\/)/g,",")
+			console.log(HeroMonitorArr,$(this).val(),num) */
+			//数据格式[{type:"名字",son[{name:"子名字1"},{name:"子名字2"}]},{type:"名字2"},son[{name:"子名字3"},{name:"子名字4"}]]
+			//注意，子名字不能有重复的
+	})
+	
+	$('.Bottom_pop_up').on('click', function() {
+		$('.Hero_maxBox_choice').fadeOut(200);
+		$('body').removeClass()
+	})
+	$('.Hero_icon').on('click', function() {
+		$('.Hero_maxBox_choice').fadeOut(200);
+		$('body').removeClass()
+	})
+
+	/* 职位选择end */
+	
+	/* 弹出层（特长标签 ）stare */
+	$('#specialtyLabel').on('click', function() {
+		$('.Hero_maxBox_specialty').fadeIn(200);
+		$('body').addClass('body_no')
+	})
+	
+	$('.Bottom_pop_up').on('click', function() {
+		$('.Hero_maxBox_specialty').fadeOut(200);
+		$('body').removeClass()
+	})
+	$('.Hero_icon').on('click', function() {
+		$('.Hero_maxBox_specialty').fadeOut(200);
+		$('body').removeClass()
+	})
+	var specialtyArr=[];
+	function specialtyBtn(t){
+		
+		let temp=$(t).children().eq(0).text()
+		if(specialtyArr.includes(temp)){
+			$(t).toggleClass('categories_red');
+			$(t).children().eq(1).toggleClass('show')
+             specialtyArr.splice(specialtyArr.indexOf(temp), 1)
+		}else if(specialtyArr.length<6){
+			$(t).toggleClass('categories_red');
+			$(t).children().eq(1).toggleClass('show')
+			specialtyArr.push(temp)
+		}
+		console.log(specialtyArr)
+	}
+	$('.specialty_on').on('click', function() {
+	$("#specialtyLabel").val(specialtyArr.toString().replace(/,/g,"/"))
+		$('.Hero_maxBox_specialty').fadeOut(200);
+		$('body').removeClass()
+	})
+	/* 弹出层 end */
+	/* 作品介绍视频、图片处理 stare */	
+	function IV(t){
+		
+		let ckeck = $(t).val()
+		if(ckeck==1){
+			$(t).parent().parent().nextAll().eq(0).show()
+			$(t).parent().parent().nextAll().eq(1).hide()
+		}else{
+			$(t).parent().parent().nextAll().eq(0).hide()
+			$(t).parent().parent().nextAll().eq(1).show()
+		}
+	}
+	
+	/* 图片上传stare */
+	var imgArr = [];
+
+		function file(t,e,num){
+			console.log(num)
+			num==undefined?num=10:num=num
+		let filesList = e.target.files;
+		$.each(filesList, (index, value) => {
+			let suffix = value.name.slice(value.name.indexOf("."))
+			if (suffix === '.jpg' || suffix === '.png' || suffix === '.jpeg') {
+				let newImg = URL.createObjectURL(value)
+				let temptotal=num;
+				temptotal--;
+	            if($(t).parent().prevAll().length>temptotal){textTip("最多支持"+num+"张图片"); return false}else{imgArr.unshift(newImg)}
+			    
+				
+				let element = '<div class="GonggeBox fileBox">' +
+					'<img src="' + newImg +
+					'" class="GonggeImg duCircleImageLi" onclick="prevImg(this)"/>' +
+					'<img src="./icon/delete.png" class="del_img" onclick="del_img(this)"/>' +
+					'</div>';
+				/* $('.upBox').before(element) */
+				$(t).parent().before(element)
+			} else {
+				textTip('图片格式错误，请重新上传');
+			}
+	
+		})
+		console.log(imgArr,"a",imgArr.length)
+		// if (imgArr.length >= 3) $(t).parent().hide()
+		let tempnum=num;
+		     tempnum--;
+			if($(t).parent().prevAll().length>tempnum){
+				$(t).parent().hide()
+			}
+		}
+	// 删除图片
+	function del_img(e) {
+		let img_url = $(e).parent().find('.GonggeImg').attr('src')
+		imgArr.splice(imgArr.indexOf(img_url), 1)
+		$(e).parent().remove();
+		console.log(imgArr,"imgArr",imgArr.length)
+		if (imgArr.length < 9) {
+			$('.upBox').show()
+		}
+	}
+	/* 图片上传end */
+	/* 点击图片预览大图stare */
+	function prevImg(that) {
+		let urls = [];
+		let imgAll = {};
+		imgAll.all = function(selector, contextElement) {
+			let nodeList,
+				list = [];
+			if (contextElement) {
+				nodeList = contextElement.querySelectorAll(selector);
+			} else {
+				nodeList = document.querySelectorAll(selector);
+			}
+			if (nodeList && nodeList.length > 0) {
+				list = Array.prototype.slice.call(nodeList);
+			}
+			return list;
+		}
+	
+		imgAll.delegate = function(imgAllel, eventType, selector, fn) {
+			if (!imgAllel) {
+				return;
+			}
+			imgAllel.addEventListener(eventType, function(e) {
+				let targets = imgAll.all(selector, imgAllel);
+				if (!targets) {
+					return;
+				}
+				// findTarget:
+				for (let i = 0; i < targets.length; i++) {
+					let imgAllnode = e.target;
+					while (imgAllnode) {
+						if (imgAllnode == targets[i]) {
+							fn.call(imgAllnode, e);
+							break; //findTarget;
+						}
+						imgAllnode = imgAllnode.parentNode;
+						if (imgAllnode == imgAllel) {
+							break;
+						}
+					}
+				}
+			}, false);
+		};
+	
+		let imgMain = $(that).parent().parent().find('.duCircleImageLi')
+		console.log(imgMain, "imgMain")
+		$.each(imgMain, function(index, imgItem) { //index:索引      obj:循环的每个元素
+			urls[index] = $(imgItem).attr('src')
+		});
+	
+		imgAll.delegate($(that).parent()[0], 'click', '.duCircleImageLi', function() {
+			let current = $(that).attr('src');
+	
+			let obj = {
+				urls,
+				current
+			};
+			previewImage.start(obj);
+		});
+	}
+	/* 点击图片预览大图end */
+	/* 作品介绍视频、图片处理 end */
+	//下一步
+	function nextStep(){ 
+		 $('.firstBox').addClass('switchBtn')
+		 $('html, body').animate({scrollTop: 0},100);
+		 $('.secondBox').show();
+		 setTimeout(function(){$('.secondBox').removeClass("switchBtnTwo");},100)
+		 setTimeout(function(){$('.firstBox').hide()},300)
+
+	}
+	//上一步
+	function lastStep(){
+		 $('.firstBox').show()
+		 $('html, body').animate({scrollTop: 0},300);
+		 $('.secondBox').addClass("switchBtnTwo");
+		 setTimeout(function(){$('.firstBox').removeClass('switchBtn')},100)
+		 setTimeout(function(){$('.secondBox').hide();},300)
+	}
+	
+	function subBtn(){
+		/* window.location.href='completionTips.html'; */
+	}
+	/* $('.appendtextBox').eq(0).hide() */
+/* 	$('.appendtextBox').eq(2).hide()
+	$('.appendtextBox').eq(3).hide()
+	$('.appendtextBox').eq(4).hide() */
+	$('.openSwitchBox').on('click', function() {
+		  $(this).children().eq(1).toggleClass('r')
+		  $(this).children().eq(1).text()=="展开"?$(this).children().eq(1).text("收起"):$(this).children().eq(1).text("展开")
+		  $(this).next().slideToggle(600)
+	})
+	function del__self_div(value){
+		// console.log(value,"")
+		$('.' + value).fadeOut("fast", function (){
+		$('.' + value).remove();
+		});
+		/* $('.' + value).remove() */
+	}
+	var countDiv=1;
+	function addDiv(t){
+			let html=""
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_33 input_text">机构名称</div>'
+			html+='<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">'
+			html+='<div class="f_14 c_h_99" onclick="del__self_div('+countDiv+')"><img src="icon/delete.svg" class="del_svg"/>删除</div>'
+			html+='</div>'
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_33 input_text">培训课程</div>'
+			html+='<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">'
+			html+='</div>'
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_66 input_text">培训时间</div>'
+			html+='<div class="guide_icon">'
+			html+='<div class="f_15 c_h_66 flex_align">'
+			html+='<input class="no_style_input"  placeholder="开始时间" style="width: 1.7rem;text-align: center;" onclick="selectTime(this,\'开始时间\')" readonly/>'
+			html+='<div class="occupation_line_box">'
+			html+='<div class="occupation_line"></div>'
+			html+='</div>'
+			html+='<input class="no_style_input" placeholder="结束时间" style="width: 1.7rem;text-align: center;" onclick="selectTime(this,\'结束时间\')" readonly />'
+			html+='</div>'
+			html+='</div>'
+			html+='</div>'
+			countDiv++;
+		  $(t).parent().before(html)
+	}
+	function addDivTwo(t){
+		let html=""
+			html+='<div class="flex h_45 lower_line  '+countDiv+'">'
+			html+='<div class="f_15 c_h_33 input_text">公司名称</div>'
+			html+='<div class="c_r_FC f_15 ">*</div>'
+			html+='<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">'
+			html+='<div class="f_14 c_h_99" onclick="del__self_div('+countDiv+')"><img src="icon/delete.svg" class="del_svg"/>删除</div>'
+			html+='</div>'
+			html+='<div class="flex h_45 lower_line  '+countDiv+'">'
+			html+='<div class="f_15 c_h_33 input_text">职位名称</div>'
+			html+='<div class="c_r_FC f_15 ">*</div>'
+			html+='<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">'
+			html+='</div>'
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_66 input_text">工作时间</div>'
+			html+='<div class="c_r_FC f_15 ">*</div>'
+			html+='<div class="guide_icon">'
+			html+='<div class="f_15 c_h_66 flex_align '+countDiv+'">'
+			html+='<input class="no_style_input"  placeholder="开始时间" style="width: 1.7rem;text-align: center;" onclick="selectTime(this,\'开始时间\')" readonly/>'
+			html+='<div class="occupation_line_box">'
+			html+='<div class="occupation_line"></div>'
+			html+='</div>'
+			html+='<input class="no_style_input" placeholder="结束时间" style="width: 1.7rem;text-align: center;" onclick="selectTime(this,\'结束时间\')" readonly />'
+			html+='</div>'
+			html+='</div>'
+			html+='</div>'
+			html+='<div class="lower_line '+countDiv+'">'
+			html+='<div class="flex h_45 ">'
+			html+='<div class="f_15 c_h_33 input_text">工作职责</div>'
+			html+='<div class="c_r_FC f_15 ">*</div>'
+			html+='</div>'
+			html+='<textarea class="f_15 textarea_style" oninput="textareaFun(this)" placeholder="填写描述内容" maxlength="200"></textarea>'
+			html+='<div class="c_h_BC f_12 flex_right" style="margin-bottom: 0.1rem">0/200</div>'
+			html+='</div>'
+			countDiv++;
+			$(t).parent().before(html)
+	}
+	/* function addDivCertificate(t){
+			let html='';
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_33 input_text">证书名称</div>'
+			html+='<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">'
+			html+='<div class="f_14 c_h_99" onclick="del__self_div('+countDiv+')"><img src="icon/delete.svg" class="del_svg"/>删除</div>'
+			html+='</div>'
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_66 input_text">获取时间</div>'
+			html+='<div class="guide_icon">'
+			html+='<div class="f_15 c_h_66 flex_align">'
+			html+='<input class="no_style_input"  placeholder="开始时间" style="width: 1.7rem;text-align: center;" onclick="selectTime(this,\'开始时间\')" readonly/>'
+			html+='<div class="occupation_line_box">'
+			html+='<div class="occupation_line"></div>'
+			html+='</div>'
+			html+='<input class="no_style_input" placeholder="结束时间" style="width: 1.7rem;text-align: center;" onclick="selectTime(this,\'开始时间\')" readonly />'
+			html+='</div>'
+			html+='</div>'
+			html+='</div>'
+			countDiv++;
+			$(t).parent().before(html)
+	}
+	function addDivLang(t){
+			let html='';
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_33 input_text">选择语言</div>'
+			html+='<input type="text" placeholder="请选择" onclick="langfun(this)" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">'
+			html+='<div class="f_14 c_h_99" onclick="del__self_div('+countDiv+')"><img src="icon/delete.svg" class="del_svg"/>删除</div>'
+			html+='</div>'
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_66 input_text">熟练程度</div>'
+			html+='<div class="f_15 c_h_66  flex_align" style="margin-left: 0.3rem;">'
+			html+='<input type="radio" name="lang'+countDiv+'" id="introduction'+countDiv+'" class="radioBtn" />'
+			html+='<label for="introduction'+countDiv+'" class="flex_align">入门</label>'
+			html+='<input type="radio" name="lang'+countDiv+'" id="skilled'+countDiv+'" class="radioBtn" checked style="margin-left: 0.5rem;"/>'
+			html+='<label for="skilled'+countDiv+'" class="flex_align">熟练</label>'
+			html+='<input type="radio" name="lang'+countDiv+'" id="master'+countDiv+'" class="radioBtn" checked style="margin-left: 0.5rem;"/>'
+			html+='<label for="master'+countDiv+'" class="flex_align">精通</label>'
+			html+='</div>'
+			html+='</div>'
+			countDiv++;
+			$(t).parent().before(html)
+	}
+	function addDivworks(t){
+			let html='';
+			html+='<div class="flex h_45 lower_line '+countDiv+'">'
+			html+='<div class="f_15 c_h_33 input_text">作品名称</div>'
+			html+='<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">'
+			html+='<div class="f_14 c_h_99" onclick="del__self_div('+countDiv+')"><img src="icon/delete.svg" class="del_svg"/>删除</div>'
+			html+='</div>'
+			html+='<div class="lower_line '+countDiv+'">'
+			html+='<div class="flex h_45">'
+			html+='<div class="f_15 c_h_33 input_text">作品描述</div>'
+			html+='</div>'
+			html+='<textarea class="f_15 textarea_style" oninput="textareaFun(this)" placeholder="填写描述内容" maxlength="200"></textarea>'
+			html+='<div class="c_h_BC f_12 flex_right" style="margin-bottom: 0.1rem">0/200</div>'
+			html+='</div>'
+			html+='<div class="IVBox '+countDiv+'">'
+			html+='<div class="flex h_45 lower_line ">'
+			html+='<div class="f_15 c_h_66 input_text">作品类型</div>'
+			html+='<div class="f_15 c_h_66  flex_align" style="margin-left: 0.3rem;">'
+			html+='<input type="radio" name="IV'+countDiv+'" id="img'+countDiv+'" class="radioBtn IV" onclick="IV(this)" value="1" checked/>'
+			html+='<label for="img'+countDiv+'" class="flex_align">图片</label>'
+			html+='<input type="radio" name="IV'+countDiv+'" id="video'+countDiv+'" class="radioBtn IV" onclick="IV(this)" value="2"  style="margin-left: 0.5rem;"/>'
+			html+='<label for="video'+countDiv+'" class="flex_align">视频</label>'
+			html+='</div>'
+			html+='</div>'
+			html+='<div class="img">'
+			html+='<div class="nineGonggeBox flex_align">'
+			html+='<div class="GonggeBox upBox">'
+			html+='<img src="./icon/tianjiatu1.png" class="GonggeImg">'
+			html+='<input type="file" name="" class="file filestyle" onchange="file(this,event,3)" accept="image/*" multiple />'
+			html+='</div>'
+			html+='</div>'
+			html+='</div>'
+			html+='<div class="video"  style="display: none;">'
+			html+='<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">'
+			html+='<div style="position: relative;">'
+			html+='<img src="./icon/shangchuan1.png" style="width: 4.9rem;height:2.76rem;" />'
+			html+='<input type="file" name="" class="head_file filestyle" accept="video/*" multiple />'
+			html+='<img src="./icon/delete.png" class="del_img" onclick="reduction_img(\'./icon/shangchuan1.png\',event)"style="display: none;" />'
+			html+='</div></div></div></div>'
+		countDiv++;
+		$(t).parent().before(html)
+	}
+	 */</script>
+	<style>
+	    body{padding: 0;}
+	    .max_box{margin: 0.15rem 0.1rem;}
+		.title_left {
+			font-weight: bold;
+			text-align: left;
+			padding-left: 0.4rem;
+		}
+
+		.experience_red,.categories_red,.education_red,.lang_red,.specialty_red{
+			background: #fff5f8 !important;
+			border: #FC3964 solid 1px !important;
+			color: #FC3964 !important;
+		}
+
+		.experience,.categories,.education,.lang,.specialty{
+			height: 0.72rem;
+			line-height: 0.72rem;
+			width: 1.94rem;
+			text-align: center;
+			border: #E4E4E8 solid 1px;
+			border-radius: 0.1rem;
+			margin: 0.12rem 0;
+			position: relative;
+		}
+
+		.experience_img {
+			width: 0.24rem;
+			height: 0.24rem;
+			position: absolute;
+			top: 0.49rem;
+			right: -0.01rem;
+			visibility: hidden;
+		}
+		.show{
+			visibility: visible ;
+		}
+		.categoriesBox,.specialtyBox{
+			flex-wrap: wrap;justify-content: space-evenly;padding: 0 0.4rem;
+		}
+		.switchBtn{
+			transform: translateX(-110%);
+			
+		}
+		.switchBtnTwo{
+			transform: translateX(110%);
+		}
+		.firstBox{transition: all 0.3s;}
+		.secondBox{
+			transition: all 0.3s;
+			display:none;
+			position: absolute;
+			    width: 100%;
+			    top: 0;
+			/* 	z-index: 1; */
+		}
+		/* ============== */
+         .openSwitch{
+			     padding-right: 0.35rem;
+				 position: relative;
+				   /* .input_select:checked+.input_select_text .ul_body:after {transform: rotate(-135deg);} */
+				 
+		 }
+		 .r:after {transform: rotate(-135deg) !important;}
+		 .openSwitch::after{
+			         position: absolute;
+			         top: 0.4rem;
+			         right: 0.0rem;
+			         content: '';
+			         width: 0.14rem;
+			         height: 0.14rem;
+			         border-right: 0.04rem solid #666666;
+			         border-bottom: 0.04rem solid #666666;
+			         transform: rotate( 
+			     45deg
+			      ) translateX(-45%);
+			         transition: .2s ease-in-out;
+		 }
+		/* ============== */
+	</style>
+</html>

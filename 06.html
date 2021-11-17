@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>我的简历</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="./css/max.css" /><!-- 主体样式 -->
+	<link rel="stylesheet" type="text/css" href="./css/mui.picker.min.css" />
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/max.js"></script>
+	</head>
+	<body>
+		<div class="max_box" style="padding-bottom: 0.3rem;">
+			<div class="h_45 flex"><input class="no_style_input f_15 c_h_66" maxlength="16" id="listname" readonly>
+				<div class="Rbox">
+					<div class="f_15 c_h_c2 flex_align" onclick="editname()"><img src="icon/rename.svg"
+							class="edit" />重命名</div>
+					<div class="f_13 c_h_66 flex_align">完整度：<span class="f_13 c_r_FC">70%</span></div>
+				</div>
+				<div class="RboxT" style="display: none;">
+					<button class="RBtn c_bg_FC c_h_FF">确定</button>
+					<button class="RBtn c_bg_FF c_r_FC">取消</button>
+				</div>
+			</div>
+			<div class="flex h_60 ">
+				<div class="f_15 c_h_33 input_text a">
+					<div>简历屏蔽</div>
+					<div class="c_h_99 f_12 ">关闭后，企业将无法查看您的简历</div>
+				</div>
+				<div class="f_15 c_h_66 flex_right" style="margin-left: 0.3rem;">
+					<input type="checkbox" class="open" checked>
+				</div>
+			</div>
+			<div class="flex h_45">
+				<div class="RefreshBox c_r_FC"  onclick="Refresh()"><img src="icon/refresh.svg" class="Refresh _g" onload="HeroSVG(this)"/>简历刷新</div>
+			</div>
+		</div>
+		<div class="max_box">
+			<div class="flex_align" style="padding: 0.3rem 0;">
+				<div><img src="./img/矩形%2090.png" class="tx_img" /></div>
+				<div style="margin-left: 0.1rem;">
+
+					<div class="textBox ">
+						<div class="f_16 c_h_33">吴女士</div>
+						<div class="flex_align f_14 c_h_99">
+							<div>21</div>
+							<div class="line"></div>
+							<div>女</div>
+							<div class="line"></div>
+							<div>中专</div>
+							<div class="line"></div>
+							<div>工作1~3年</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="flex_1 edit_Box" onclick="go('edit.html')">
+					<div class="flex_align"><img src="./icon/edit.svg" class="edit_img _g" onload="HeroSVG(this)"/>
+						<div class="f_14 c_h_99 ">编辑</div>
+					</div>
+				</div>
+			</div>
+			<div style="line-height: 0.45rem;padding-bottom: 0.25rem;">
+				<p class="c_h_99 f_13 ellipsis"> 手机号码： <span class="c_h_33 f_13">18341913822</span></p>
+				<p class="c_h_99 f_13 ellipsis"> 联系邮箱： <span class="c_h_33 f_13">183498341@qq.com </span></p>
+				<p class="c_h_99 f_13 ellipsis"> 现居地址： <span class="c_h_33 f_13"> 天河棠东地铁a出口前100米 </span></p>
+			</div>
+		</div>
+		<div class="max_box">
+			<div class="h_45 lower_line center_at_both_ends">
+				<div class="f_16 c_h_33 input_text">求职信息</div>
+				<div class="flex_align" onclick="go('edittwo.html')"><img src="./icon/edit.svg" class="edit_img" />
+					<div class="f_14 c_h_99 ">编辑</div>
+				</div>
+			</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">求职意向<span class="c_h_33 f_13 P_l_30">离职-随时到岗</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作性质<span class="c_h_33 f_13 P_l_30">全职</span></p>
+				<p class="c_h_99 f_13 ellipsis">期望职位<span class="c_h_33 f_13 P_l_30">美容师/美发师</span></p>
+				<p class="c_h_99 f_13 ellipsis">期望薪酬 <span class="c_h_33 f_13 P_l_30">3-5k</span></p>
+				<p class="c_h_99 f_13 ellipsis">期望行业 <span class="c_h_33 f_13 P_l_30">美容</span></p>
+				<p class="c_h_99 f_13 ellipsis">期望城市 <span class="c_h_33 f_13 P_l_30">广州</span></p>
+			</div>
+
+		</div>
+		<div class="max_box">
+			<div class="h_45 lower_line center_at_both_ends">
+				<div class="f_16 c_h_33 input_text">教育背景</div>
+				<div class="flex_align" onclick="go('editthree.html')"><img src="./icon/edit.svg" class="edit_img" />
+					<div class="f_14 c_h_99 ">编辑</div>
+				</div>
+			</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">最高学历<span class="c_h_33 f_13 P_l_30">最高学历</span></p>
+				<p class="c_h_99 f_13 ellipsis">毕业学校<span class="c_h_33 f_13 P_l_30">广东外语外贸学院</span></p>
+				<p class="c_h_99 f_13 ellipsis">就读时间<span class="c_h_33 f_13 P_l_30">2019年9月-2021年6月</span></p>
+				<p class="c_h_99 f_13 ellipsis">所学专业 <span class="c_h_33 f_13 P_l_30">管理学</span></p>
+			</div>
+		</div>
+		<div class="max_box">
+			<div class="h_45 lower_line center_at_both_ends">
+				<div class="f_16 c_h_33 input_text">培训经历</div>
+				<div class="flex_align" onclick="go('editfour.html')"><img src="./icon/edit.svg" class="edit_img" />
+					<div class="f_14 c_h_99 ">编辑</div>
+				</div>
+			</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">机构名称<span class="c_h_33 f_13 P_l_30">美丽雅机构</span></p>
+				<p class="c_h_99 f_13 ellipsis">培训课程<span class="c_h_33 f_13 P_l_30">科技美容入门班</span></p>
+				<p class="c_h_99 f_13 ellipsis">培训时间<span class="c_h_33 f_13 P_l_30">2019年8月-2019年12月</span></p>
+			</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">机构名称<span class="c_h_33 f_13 P_l_30">美丽雅机构</span></p>
+				<p class="c_h_99 f_13 ellipsis">培训课程<span class="c_h_33 f_13 P_l_30">科技美容入门班</span></p>
+				<p class="c_h_99 f_13 ellipsis">培训时间<span class="c_h_33 f_13 P_l_30">2019年8月-2019年12月</span></p>
+			</div>
+		</div>
+		<div class="max_box">
+			<div class="h_45 lower_line center_at_both_ends">
+				<div class="f_16 c_h_33 input_text">工作经历</div>
+				<div class="flex_align" onclick="go('editfive.html')"><img src="./icon/edit.svg" class="edit_img" />
+					<div class="f_14 c_h_99 ">编辑</div>
+				</div>
+			</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">公司名称<span class="c_h_33 f_13 P_l_30">广州绿苗美容管理中心</span></p>
+				<p class="c_h_99 f_13 ellipsis">职位名称<span class="c_h_33 f_13 P_l_30">科技美容师</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作时间<span class="c_h_33 f_13 P_l_30">2021年3月-2021年5月</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作职责</p>
+				<div class="c_h_33 f_13">
+					1. 以良好的仪态、精神，为顾客提供专业化美容服务。
+					2. 以专业的美容知识为顾客度提供方案。3. 以诚恳的
+					心态，与顾客理性沟通，掌握顾客内在需求。
+				</div>
+			</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">公司名称<span class="c_h_33 f_13 P_l_30">广州绿苗美容管理中心</span></p>
+				<p class="c_h_99 f_13 ellipsis">职位名称<span class="c_h_33 f_13 P_l_30">科技美容师</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作时间<span class="c_h_33 f_13 P_l_30">2021年3月-2021年5月</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作职责</p>
+				<div class="c_h_33 f_13">
+					1. 以良好的仪态、精神，为顾客提供专业化美容服务。
+					2. 以专业的美容知识为顾客度提供方案。3. 以诚恳的
+					心态，与顾客理性沟通，掌握顾客内在需求。
+				</div>
+			</div>
+
+		</div>
+		<div class="max_box">
+			<div class="h_45 lower_line center_at_both_ends">
+				<div class="f_16 c_h_33 input_text">荣誉证书</div>
+				<div class="flex_align" onclick="go('editsix.html')"><img src="./icon/edit.svg" class="edit_img" />
+					<div class="f_14 c_h_99 ">编辑</div>
+				</div>
+			</div>
+		<!-- 	<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">证书名称<span class="c_h_33 f_13 P_l_30">高级美容师</span></p>
+				<p class="c_h_99 f_13 ellipsis">获取时间<span class="c_h_33 f_13 P_l_30">2019年9月30日</span></p>
+			</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">证书名称<span class="c_h_33 f_13 P_l_30">高级美容师</span></p>
+				<p class="c_h_99 f_13 ellipsis">获取时间<span class="c_h_33 f_13 P_l_30">2019年9月30日</span></p>
+			</div> -->
+			<div class="flex_center_up_and_down f_14 c_h_99 h_55">请上传证明你专业程度的证书</div>
+		</div>
+		<div class="max_box">
+			<div class="h_45 lower_line center_at_both_ends">
+				<div class="f_16 c_h_33 input_text">语言能力</div>
+				<div class="flex_align" onclick="go('editseven.html')"><img src="./icon/edit.svg" class="edit_img" />
+					<div class="f_14 c_h_99 ">编辑</div>
+				</div>
+			</div>
+			<!-- <div class="lower_line flex_wrap" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<div class="lable_box"><span class="f_14 c_h_99">普通话</span>-<span class="f_14 c_h_33">熟练</span></div>
+				<div class="lable_box"><span class="f_14 c_h_99">普通话</span>-<span class="f_14 c_h_33">熟练</span></div>
+				<div class="lable_box"><span class="f_14 c_h_99">普通话</span>-<span class="f_14 c_h_33">熟练</span></div>
+				<div class="lable_box"><span class="f_14 c_h_99">普通话</span>-<span class="f_14 c_h_33">熟练</span></div>
+				<div class="lable_box"><span class="f_14 c_h_99">普通话</span>-<span class="f_14 c_h_33">熟练</span></div>
+				<div class="lable_box"><span class="f_14 c_h_99">普通话</span>-<span class="f_14 c_h_33">熟练</span></div>
+				<div class="lable_box"><span class="f_14 c_h_99">普通话</span>-<span class="f_14 c_h_33">熟练</span></div>
+			</div> -->
+			<div class="flex_center_up_and_down f_14 c_h_99 h_55">快来添加你的语言能力吧</div>
+		</div>
+		<div class="max_box">
+			<div class="h_45 lower_line center_at_both_ends">
+				<div class="f_16 c_h_33 input_text">特长标签</div>
+				<div class="flex_align"  onclick="go('editeight.html')"><img src="./icon/edit.svg" class="edit_img" />
+					<div class="f_14 c_h_99 ">编辑</div>
+				</div>
+			</div>
+			<div class="lower_line flex_wrap" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<div class="specialtyBox c_r_FC f_14 c_bg_FFF5F8">刻苦耐劳</div>
+				<div class="specialtyBox c_r_FC f_14 c_bg_FFF5F8">高学历</div>
+				<div class="specialtyBox c_r_FC f_14 c_bg_FFF5F8">聊天鬼才</div>
+				<div class="specialtyBox c_r_FC f_14 c_bg_FFF5F8">御姐</div>
+				<div class="specialtyBox c_r_FC f_14 c_bg_FFF5F8">能快速适应</div>
+				<div class="specialtyBox c_r_FC f_14 c_bg_FFF5F8">能出差</div>
+				
+		
+			</div>
+		</div>
+		<div class="max_box">
+			<div class="h_45 lower_line center_at_both_ends">
+				<div class="f_16 c_h_33 input_text">作品介绍</div>
+				<div class="flex_align"  onclick="go('editnine.html')"><img src="./icon/edit.svg" class="edit_img" />
+					<div class="f_14 c_h_99 ">编辑</div>
+				</div>
+			</div>
+			<div class="flex_center_up_and_down f_14 c_h_99 h_55">快速展示你的作品，提高求职效率吧</div>
+		<!-- 	<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">作品名称<span class="c_h_33 f_13 P_l_30">手法作品展示</span></p>
+				<p class="c_h_99 f_13 ellipsis">作品类型<span class="c_h_33 f_13 P_l_30">图片</span></p>
+				<p class="c_h_99 f_13 ellipsis">作品描述</p>
+				<div class="c_h_33 f_13">
+					把身心健康美丽绝对视为第一，热爱美容，亦爱健身。
+					热爱SPA，亦爱高科技美容。而高科技美容,怎能离得了
+					美容仪器。
+				</div>
+			</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">公司名称<span class="c_h_33 f_13 P_l_30">广州绿苗美容管理中心</span></p>
+				<p class="c_h_99 f_13 ellipsis">职位名称<span class="c_h_33 f_13 P_l_30">科技美容师</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作时间<span class="c_h_33 f_13 P_l_30">2021年3月-2021年5月</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作职责</p>
+				<div class="c_h_33 f_13">
+					1. 以良好的仪态、精神，为顾客提供专业化美容服务。
+					2. 以专业的美容知识为顾客度提供方案。3. 以诚恳的
+					心态，与顾客理性沟通，掌握顾客内在需求。
+				</div>
+				<div class="imglistBox">
+					<div class="GonggeBox">
+						<img src="./img/87.png" class="GonggeImg duCircleImageLi" />
+					</div>
+					<div class="GonggeBox">
+						<img src="./img/87.png" class="GonggeImg duCircleImageLi" />
+					</div>
+					<div class="GonggeBox">
+						<img src="./img/87.png" class="GonggeImg duCircleImageLi" />
+					</div>
+				</div>
+			<div class="lower_line" style="line-height: 0.5rem;padding: 0.25rem 0;">
+				<p class="c_h_99 f_13 ellipsis">公司名称<span class="c_h_33 f_13 P_l_30">广州绿苗美容管理中心</span></p>
+				<p class="c_h_99 f_13 ellipsis">职位名称<span class="c_h_33 f_13 P_l_30">科技美容师</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作时间<span class="c_h_33 f_13 P_l_30">2021年3月-2021年5月</span></p>
+				<p class="c_h_99 f_13 ellipsis">工作职责</p>
+				<div class="c_h_33 f_13">
+					1. 以良好的仪态、精神，为顾客提供专业化美容服务。
+					2. 以专业的美容知识为顾客度提供方案。3. 以诚恳的
+					心态，与顾客理性沟通，掌握顾客内在需求。
+				</div>
+				<div class="imglistBox" style="justify-content: center;">
+				<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+						<img src="./img/89.png" style="width: 4.9rem;height:2.76rem;" />
+				</div>
+				</div>
+			</div>
+			</div>
+ -->
+		</div>
+
+	</body>
+	
+	<script>
+		$('#listname').val('我的简历20210527')
+        function Refresh(){
+			textTip("简历信息已刷新")
+		}
+		function editname() {
+			$('.Rbox').hide()
+			$('.RboxT').show()
+			//$('input').attr("readonly","readonly")//将input元素设置为readonly
+			$('#listname').removeAttr("readonly"); //去除input元素的readonly属性
+		}
+		$('.RBtn').on('click', function() {
+			if ($(this).text() === '取消') {
+				$('#listname').attr("readonly", "readonly") //将input元素设置为readonly
+				$('#listname').val('我的简历20210527') //原来的值
+				$('.Rbox').show()
+				$('.RboxT').hide()
+			} else {
+				$('#listname').attr("readonly", "readonly") //将input元素设置为readonly
+				$('.Rbox').show()
+				$('.RboxT').hide()
+			}
+		})
+		function go(url){
+			window.location.href='edit/'+url+'';
+		}
+	</script>
+	<style>
+	.max_box{margin: 0.15rem 0.1rem;}
+	.specialtyBox{margin-right: 0.2rem;padding: 0 0.2rem;border-radius: 0.2rem;margin-bottom: 0.2rem;}
+	.imglistBox{
+		    display: flex;
+		    margin-top: 0.2rem;
+	}
+		.lable_box {
+			margin: 0 0.1rem 0.1rem 0;
+		}
+
+		.textBox {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			line-height: 0.5rem;
+		}
+
+		.tx_img {
+			height: 1.2rem;
+			width: 1.2rem;
+			border-radius: 50%;
+			margin-right: 0.1rem;
+		}
+
+		.a {
+			display: flex;
+			flex-direction: column;
+			line-height: 0.5rem;
+			justify-content: center;
+		}
+
+		.Rbox {
+			width: 4rem;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.RboxT {
+			width: 4rem;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
+
+		.edit {
+			width: 0.22rem;
+			height: 0.22rem;
+			vertical-align: middle;
+		}
+
+		.RBtn {
+			width: 1.2rem;
+			height: 0.5rem;
+			line-height: 0.5rem;
+			border: var(--themecolor,#FC3964) solid 1px;
+			font-size: 0.26rem;
+			border-radius: 0.3rem;
+			margin-left: 0.1rem;
+
+		}
+
+		.Refresh {
+			height: 0.3rem;
+			width: 0.3rem;
+			margin-right: 0.1rem;
+		}
+
+		.RefreshBox {
+			width:100%;
+			height: 0.7rem;
+			border: 1px solid var(--themecolor,#FC3964);
+			box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.06);
+			opacity: 1;
+			border-radius: 0.46rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 0.16rem;
+		}
+
+		.edit_img {
+			width: 0.32rem;
+			height: 0.32rem;
+			margin-right: 0.05rem;
+		}
+
+		.edit_Box {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-end;
+			margin-top: -0.5rem;
+		}
+
+		.P_l_30 {
+			margin-left: 0.3rem;
+		}
+		.line {
+		    background: #f2f2f2;
+		    border-radius: 0.3rem;
+		    margin: 0 0.15rem;
+		    height: 0.4rem;
+		    width: 1px;
+		    display: inline-block;
+		}
+	</style>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>WECOME TO MaxJs</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/max.css" /><!-- 主体样式 -->
+	<body style="padding: 0px;">
+		<div class="head  flex_align ">
+			<div class="f_16">H5 标准页</div>
+		</div>
+		<div class="center">
+			<div class="phone"><iframe src="01.html" frameborder="no" class="ifRom"></iframe><div>常见表单页01.html</div></div>
+			<div class="phone"><iframe src="02.html" frameborder="no" class="ifRom"></iframe><div>常见表单页02.html</div></div>
+			<div class="phone"><iframe src="03.html" frameborder="no" class="ifRom"></iframe><div>常见列表页03.html</div></div>
+			<div class="phone"><iframe src="04.html" frameborder="no" class="ifRom"></iframe><div>常见优惠卷04.html</div></div>
+			<div class="phone"><iframe src="05.html" frameborder="no" class="ifRom"></iframe><div>常见选项卡05.html</div></div>
+			<div class="phone"><iframe src="06.html" frameborder="no" class="ifRom"></iframe><div>常见展示页06.html</div></div>
+			<div class="phone"><iframe src="07.html" frameborder="no" class="ifRom"></iframe><div>常见插件页.html</div></div>
+		<!-- 	<div class="phone"><iframe src="01.html" frameborder="no" class="ifRom"></iframe></div>
+			<div class="phone"><iframe src="01.html" frameborder="no" class="ifRom"></iframe></div>
+			<div class="phone"><iframe src="01.html" frameborder="no" class="ifRom"></iframe></div>
+			<div class="phone"><iframe src="01.html" frameborder="no" class="ifRom"></iframe></div>
+			<div class="phone"><iframe src="01.html" frameborder="no" class="ifRom"></iframe></div> -->
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/max.js"></script>
+	<script>
+	
+	</script>
+	<style>
+        *{font-size: 0.24rem;}
+
+		.head {
+			width: 100%;
+			height: 60px;
+			background: #001938;
+			color: white;
+			position: fixed;
+			z-index: 1;
+			padding-left: 20px;
+		}
+
+		.center {
+		    width: 100%;
+		    background: linear-gradient(-90deg, #29bdd9 0%, #276ace 100%);
+		   /* height: 100vh; */
+		    position: relative;
+		    display: flex;
+		    flex-direction: row;
+		    align-content: flex-start;
+		    flex-wrap: wrap;
+		    justify-content: space-evenly;
+		    padding-top: 0.6rem;
+			overflow: hidden;
+		}
+
+		.phone {
+			width: 3.75rem;
+			height: 7.12rem;
+			background: white;
+			border-radius: 20px;
+			transform: scale(0.8);
+			box-shadow: 0px 0px 18px 1px #111111;
+			margin-left: 0.1rem;
+			transform-origin:center;
+			position: relative;
+
+		}
+		.phone div{
+			position: absolute;
+			    color: white;
+			    left: 0;
+			    right: 0;
+			    text-align: center;
+		}
+		.phone_Box{
+		/* 	flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center; */
+		}
+
+		.ifRom {
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border: none;
+			border-radius: 20px;
+		}
+		*::-webkit-scrollbar {display: none;}
+		
+	</style>
+</html>

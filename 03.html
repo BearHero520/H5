@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>收藏中心</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="./css/max.css" /><!-- 主体样式 -->
+	<body>
+		<div class="max_box">
+			<div class="h_70 flex_align conBox flex_1">
+				<div class="flex_align">
+				  <div class="stateBuleBox f_12 flex_center_up_and_down">线上招聘</div>
+				  <div class="f_14 c_h_33">番禺校区(澳美)</div>
+				</div>
+				<div class="flex_align c_h_66">
+				  <div class="f_12"> 时间： </div>
+				  <div class="f_12"> 2021-05-13 09:42 </div>
+				  <div class="toseparate f_12">至</div>
+				  <div class="f_12"> 2021-05-31 09:38</div>
+				</div>
+				<div class="rightfloatBox"><img src="./icon/lajitong.svg" class="rightfloatIcon"/></div>
+			</div>
+		</div>
+		<div class="max_box">
+			<div class="h_70 flex_align conBox flex_1">
+				<div class="flex_align">
+				  <div class="stateyellowBox f_12 flex_center_up_and_down">线下招聘</div>
+				  <div class="f_14 c_h_33">番禺校区(澳美)</div>
+				</div>
+				<div class="flex_align c_h_66">
+				  <div class="f_12"> 时间： </div>
+				  <div class="f_12"> 2021-05-13 09:42 </div>
+				  <div class="toseparate f_12">至</div>
+				  <div class="f_12"> 2021-05-31 09:38</div>
+				</div>
+				<div class="rightfloatBox"><img src="./icon/lajitong.svg" class="rightfloatIcon"/></div>
+			</div>
+		</div>
+		<div class="max_box" onclick="end()">
+			<div class="h_70 flex_align conBox flex_1">
+				<div class="flex_align">
+				  <div class="statehBox f_12 flex_center_up_and_down">已结束</div>
+				  <div class="f_14 c_h_33">番禺校区(澳美)</div>
+				</div>
+				<div class="flex_align c_h_66">
+				  <div class="f_12"> 时间： </div>
+				  <div class="f_12"> 2021-05-13 09:42 </div>
+				  <div class="toseparate f_12">至</div>
+				  <div class="f_12"> 2021-05-31 09:38</div>
+				</div>
+				<div class="rightfloatBox"><img src="./icon/lajitong.svg" class="rightfloatIcon"/></div>
+			</div>
+		</div>
+	</body>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/max.js"></script>
+	<script>
+	  function end(){
+		  textTip('该活动已经结束')
+	  }
+	  $('.rightfloatBox').on('click',function(){
+		  console.log('233')
+		  $(this).parent().parent().remove()
+		  　event.cancelBubble=true;
+	  })
+	</script>
+	<style>
+	.max_box{margin: 0.15rem 0.1rem;}
+	  .qxBox{position: absolute;width: 1.2rem;height: 0.48rem;font-size: 0.24rem;border: #FC3964 solid 1px;border-radius: 0.3rem;text-align: center;right: 0;}
+	  .toseparate{margin: 0 0.1rem;}
+	  .time{transform: scale(0.9);transform-origin: 0 0;}
+	  .conBox{display: flex;flex-direction: column;align-items: flex-start;justify-content: center;line-height: 0.5rem;position: relative;}
+	  .stateBuleBox{
+		      width: 1rem;
+		      height: 0.36rem;
+		      background: #398EFC;
+		      color: white;
+		      margin-right: 0.1rem;
+		      padding: 0.04rem 0.08rem;
+		      transform: scale(0.95);
+		      transform-origin: 0 100%;
+		      border-radius: 0.03rem;
+	  }
+	  .stateyellowBox{
+		  width: 1rem;
+		  height: 0.36rem;
+		  background: #FF9C2C;
+		  color: white;
+		  margin-right: 0.1rem;
+		  padding: 0.04rem 0.08rem;
+		  transform: scale(0.95);
+		  transform-origin: 0 100%;
+		  border-radius: 0.03rem;
+	  }
+	  .statehBox{
+		  width: 1rem;
+		  height: 0.36rem;
+		  background:#c2c2c2;
+		  color: white;
+		  margin-right: 0.1rem;
+		  padding: 0.04rem 0.08rem;
+		  transform: scale(0.95);
+		  transform-origin: 0 100%;
+		  border-radius: 0.03rem;
+	  }
+	  .rightfloatBox{width: 0.5rem;height: 0.5rem;background: #F4F4F4;display: flex;border-radius: 50%;align-items: center;justify-content: center;position: absolute;right: 0.2rem;}
+	  .rightfloatIcon{width: 0.3rem;height: 0.3rem;}
+	</style>
+</html>

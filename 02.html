@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>企业端-信息</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="./css/max.css" /><!-- 主体样式 -->
+	<link rel="stylesheet" type="text/css" href="./css/mui.picker.min.css" />
+	<body>
+		<div style="position: relative;">
+		<div class="firstBox">
+			
+		<div class="max_box" style="padding-bottom: 0.2rem;">
+			<div class="h_45 lower_line">
+				<div class="f_16 c_h_33 input_text">基本资料</div>
+			</div>
+			<div class="flex h_85 lower_line">
+				<div class="f_15 c_h_33 etr_logo">
+				    <div class="f_15 c_h_66">公司LOGO</div>
+					<div class="f_12 c_h_99">设置公司logo，可提高招聘效率</div>
+					</div>
+				<div class="c_h_BC f_12 flex_right" style="position: relative;">点击上传<img src="./icon/toux.svg"
+						class="touxiang" /><input type="file" name="" class="head_file filestyle"  accept="image/*"
+						multiple /></div>
+			</div>
+		
+			
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">企业名称</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">企业简称</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">所在地址</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">联系电话</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<input type="text" placeholder="请输入" oninput="value=value.replace(/[^\d]/g,'')" maxlength="11" class="no_style_input f_15 c_h_33" style="margin-left: 0.3rem;">
+			</div>
+			<div class="lower_line">
+				<div class="flex h_45">
+					<div class="f_15 c_h_33 input_text">
+						<span>营业执照</span>
+						<span class="c_r_FC f_15 ">*</span>
+					<span class="c_h_AD f_12" style="margin-left: 0.12rem;">请上传高清照片</span>
+					</div>
+				</div>
+				<div class="nineGonggeBox flex_align">
+					<div class="GonggeBox upBox">
+						<img src="./icon/tianjiatu1.png" class="GonggeImg">
+						<input type="file" name="" class="file filestyle" onchange="file(this,event,1)" accept="image/*" multiple />
+					</div>
+				</div>
+			</div>
+	
+		</div>
+		<div class="max_box" style="padding-bottom: 0.2rem;">
+			<div class="h_45 lower_line">
+				<div class="f_16 c_h_33 input_text">背景介绍</div>
+			</div>
+	
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">所属行业</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" onclick="industry(this,'所属行业')" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">企业性质</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" onclick="nature(this,'企业性质')" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">企业规模</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" onclick="scale(this,'企业规模')" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+			<div class="flex h_45 lower_line">
+				<div class="f_15 c_h_66 input_text">企业标签</div>
+				<div class="c_r_FC f_15 ">*</div>
+				<div class="guide_icon">
+					<input class="no_style_input f_15 c_h_33" id="specialtyLabel" type="text" placeholder="请选择" readonly />
+				</div>
+			</div>
+			<div class="lower_line">
+				<div class="flex h_45">
+					<div class="f_15 c_h_33 input_text">
+						<span>环境照片</span>
+						<span class="c_r_FC f_15 ">*</span>
+					<span class="c_h_AD f_12" style="margin-left: 0.12rem;">请上传高清照片</span>
+					</div>
+				</div>
+				<div class="nineGonggeBox flex_align">
+					<div class="GonggeBox upBox">
+						<img src="./icon/tianjiatu1.png" class="GonggeImg">
+						<input type="file" name="" class="file filestyle" onchange="file(this,event,6)" accept="image/*" multiple />
+					</div>
+				</div>
+			</div>
+			<div class="lower_line">
+				<div class="flex h_45">
+					<div class="f_15 c_h_33 input_text">企业介绍</div>
+					<div class="c_r_FC f_15 ">*</div>
+				</div>
+				<textarea class="f_15 textarea_style" oninput="HeroFun.textareaFun(this)" placeholder="填写描述内容"
+					maxlength="200"></textarea>
+				<div class="c_h_BC f_12 flex_right" style="margin-bottom: 0.1rem">0/200</div>
+			</div>
+
+		<div class="h_65 max_box flex_align">
+			<button type="button" class="MaxBtn c_bg_FC f_15" onclick="nextStep()">下一步</button>
+		</div>
+		</div>
+		</div>
+		<div class="secondBox switchBtnTwo">
+			<div class="max_box" style="padding-bottom: 0.2rem;">
+				<div class="h_45 lower_line">
+					<div class="f_16 c_h_33 input_text">其他方面</div>
+				</div>
+				
+				<div class="flex h_45 lower_line">
+					<div class="f_15 c_h_66 input_text">合作校区</div>
+					<div class="c_r_FC f_15 ">*</div>
+					<div class="guide_icon">
+						<input class="no_style_input f_15 c_h_33" onclick="cooperativeCampus(this,'合作校区')" type="text" placeholder="请选择" readonly />
+					</div>
+				</div>
+				<div class="lower_line">
+					<div class="flex h_45">
+						<div class="f_15 c_h_66 input_text">
+							<span>网络招聘会</span>
+							<span class="c_r_FC f_15 ">*</span>
+						<span class="c_h_AD f_12" style="margin-left: 0.12rem;">请上传宣讲图（最多可上传6张）</span>
+						</div>
+					</div>
+					<div class="nineGonggeBox flex_align">
+						<div class="GonggeBox upBox">
+							<img src="./icon/tianjiatu1.png" class="GonggeImg">
+							<input type="file" name="" class="file filestyle" onchange="file(this,event,6)" accept="image/*" multiple />
+						</div>
+					</div>
+				</div>
+            </div>
+			<div class="max_box" style="padding-bottom: 0.2rem;">
+				<div class="h_45 lower_line">
+					<div class="f_16 c_h_33 input_text">薪酬待遇</div>
+				</div>
+								
+				<div class="flex h_45 lower_line">
+					<div class="f_15 c_h_66 input_text">保底待遇</div>
+					<div class="c_r_FC f_15 ">*</div>
+					<input type="text" placeholder="请输入" oninput="value=value.replace(/[^\d]/g,'')" class="no_style_input f_15 c_h_33" maxlength="16" style="margin-left: 0.3rem;">
+				</div>
+				<div class="flex h_45 lower_line">
+					<div class="f_15 c_h_66 input_text">试用待遇</div>
+					<div class="c_r_FC f_15 ">*</div>
+					<input type="text" placeholder="请输入" oninput="value=value.replace(/[^\d]/g,'')" class="no_style_input f_15 c_h_33" maxlength="16" style="margin-left: 0.3rem;">
+				</div>
+				<div class="flex h_45 lower_line">
+					<div class="f_15 c_h_66 input_text">转正待遇</div>
+					<div class="c_r_FC f_15 ">*</div>
+					<input type="text" placeholder="请输入"oninput="value=value.replace(/[^\d]/g,'')" class="no_style_input f_15 c_h_33" maxlength="16" style="margin-left: 0.3rem;">
+				</div>
+				<div class="flex h_45 lower_line">
+					<div class="f_15 c_h_66 input_text">公积金</div>
+					<div class="c_r_FC f_15 ">*</div>
+					<div class="f_15 c_h_66  flex_align " style="margin-left: 0.3rem;">
+						<input type="radio" name="accumulationFund" id="contain" class="radioBtn" checked/>
+						<label for="contain" class="flex_align">包含</label>
+						<input type="radio" name="accumulationFund" id="notIncluded" class="radioBtn"  style="margin-left: 0.5rem;"/>
+						<label for="notIncluded" class="flex_align">不包含</label>
+					</div>
+				</div>
+				<div class="flex h_45 lower_line">
+					<div class="f_15 c_h_66 input_text">买社保</div>
+					<div class="c_r_FC f_15 ">*</div>
+					<div class="f_15 c_h_66  flex_align " style="margin-left: 0.3rem;">
+						<input type="radio" name="socialSecurity" id="yes" class="radioBtn" checked/>
+						<label for="yes" class="flex_align">帮有</label>
+						<input type="radio" name="socialSecurity" id="no" class="radioBtn"  style="margin-left: 0.5rem;"/>
+						<label for="no" class="flex_align">不买</label>
+					</div>
+				</div>
+		
+				
+			</div>
+			
+			
+			
+		<div class="h_65 max_box center_at_both_ends">
+				<button type="button" class="whiteMoreBtn c_bg_FF f_15 c_r_FC" onclick="lastStep()">上一步</button><button type="button" class="redMoreBtn c_bg_FC f_15" onclick="subBtn()">完成</button>
+			</div>
+		</div>
+		</div>
+		<!-- 弹窗层translate -->
+		<div class="Hero_maxBox_translate" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header  f_18 title_left"><span class="translate_title"></span><img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="max_box" style="max-height: 6rem; overflow-y: auto;padding: 0;">
+						<div class="f_15  flex c_h_99 translate_BOX"  >
+						</div>
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15" onclick="translate_on()">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹窗层end -->
+
+		<!-- 弹窗层（特长标签）stare -->
+		<div class="Hero_maxBox_specialty" style="display: none;">
+			<div class="Bottom_pop_up"></div>
+			<div class="Hero_popup Hero-popup--bottom Hero-action-Box Hero-popup--round">
+				<div class="Hero_header f_18 title_left">特长标签<span class="f_12 c_h_99" style="margin-left: 0.1rem;font-weight: normal;">最多可选6个</span><img src="./icon/danccha.svg" class="Hero_icon" /></div>
+				<div class="content">
+					<div class="max_box" style="max-height: 6rem; overflow-y: auto;padding: 0;">
+						<div class="f_15  flex c_h_99 specialtyBox">
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>连锁品牌</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>高端品牌</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>环境好</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>年终奖</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>双休</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>加班费</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>高学历</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>朝九晚五</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>交通方便</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>五险一金</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>节日福利</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<div class="specialty" onclick="specialtyBtn(this)">
+								<span>大公司</span>
+								<img src="./icon/xuanzegou.svg" class="experience_img" />
+							</div>
+							<span style="width: 1.94rem;"></span>
+						</div>
+					</div>
+					<div class="h_65 max_box flex_align box_shadow">
+						<button type="button" class="MaxBtn c_bg_FC f_15 specialty_on">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	
+	</body>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/max.js"></script>
+	<script src="js/city.js"></script>
+	<script src="./js/previewImage.min.js"></script><!-- 图片预览js -->
+<!-- 	<script>window.FastClick = true;</script>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.picker.min.js"></script>
+	<script src="./js/mui_city.js"></script> -->
+	
+	<script>
+	// setTimeout(function(){
+	// 	nextStep()
+	// },1000)
+	
+	/* 头像上传stare */
+	$('.head_file').on('change', function(e) {
+		let filesList = e.target.files;
+		$.each(filesList, (index, value) => {
+			let suffix = value.name.slice(value.name.indexOf("."))
+			if (suffix === '.jpg' || suffix === '.png' || suffix === '.jpeg') {
+				let newImg
+				newImg = null;
+				newImg = URL.createObjectURL(value)
+				$(this).siblings('img').eq(0).attr('src', newImg)
+				$(this).siblings('img').eq(1).show();
+				/* $(this).before(html) */
+			} else {
+				alert('图片格式错误，请重新上传');
+			}
+	
+		})
+	})
+	
+	function subBtn(){
+		 window.location.href='entcompletionTips.html.html';
+	}
+	function cooperativeCampus(t,name){
+		//这里放
+		// $('.Hero_maxBoxSelectMany').fadeIn(200);
+		 let temp=[{name:"广州车陂校区",value:"1"},{name:"广州番禺校区",value:"2"},{name:"中山小榄校区",value:"8"},{name:"深圳龙华校区",value:"3"},{name:"东北校区",value:"4"},{name:"北京校区",value:"5"},{name:"佛山南海校区",value:"10"},{name:"勇敢牛牛不怕困难",value:"6"}]
+		  HeroFun.HeroSelectManyFun('合作校区',temp,t,3)
+	}
+
+	//下一步
+	function nextStep(){ 
+		 $('.firstBox').addClass('switchBtn')
+		 $('html, body').animate({scrollTop: 0},100);
+		 $('.secondBox').show();
+		 setTimeout(function(){$('.secondBox').removeClass("switchBtnTwo");},100)
+		 setTimeout(function(){$('.firstBox').hide()},300)
+	
+	}
+	//上一步
+	function lastStep(){
+		 $('.firstBox').show()
+		 $('html, body').animate({scrollTop: 0},300);
+		 $('.secondBox').addClass("switchBtnTwo");
+		 setTimeout(function(){$('.firstBox').removeClass('switchBtn')},100)
+		 setTimeout(function(){$('.secondBox').hide();},300)
+	
+	}
+	//遮罩层关闭图标（通用）
+
+	$('.Bottom_pop_up').on('click', function() {
+		$('.Hero_maxBox_specialty').fadeOut(200);
+		$('.Hero_maxBoxSelectMany').fadeOut(200);
+		$('.Hero_maxBox_translate').fadeOut(200);
+		$('body').removeClass()
+	})
+	$('.Hero_icon').on('click', function() {
+		$('.Hero_maxBox_specialty').fadeOut(200);
+		$('.Hero_maxBoxSelectMany').fadeOut(200);
+		$('.Hero_maxBox_translate').fadeOut(200);
+		$('body').removeClass()
+	})
+	/* 单选(通用)Box stare*/
+	var translate
+	var translate_val
+	    function Hero_translate_BOX(list,title,t){
+			translate=t
+			$('.translate_title').text(title)
+			$('.translate_BOX').html('')
+			list.filter((k,v)=>{
+				let html='';
+					html +='<div class="translate ellipsis" onclick="translateBtn(this)">'
+					html +='<span>'+k.name+'</span>'
+					html +='<img src="./icon/xuanzegou.svg" class="experience_img" />'
+					html +='</div>'
+					$('.translate_BOX').append(html)
+			})
+			$('.Hero_maxBox_translate').fadeIn(200);
+			$('body').addClass('body_no')
+		}
+		function translateBtn(t){
+		        translate_val='';
+			$('.translate').removeClass('translate_red');
+				$('.translate').children('img').css('visibility', 'hidden');
+				$(t).addClass('translate_red')
+				$(t).children('img').css('visibility', 'visible');
+				translate_val=$(t).children().eq(0).text()
+		}
+		function translate_on(){
+			$('.Hero_maxBox_translate').fadeOut(200);
+			$('body').removeClass()
+			$(translate).val(translate_val)
+		}
+	/* 单选(通用)Box end*/
+	/* 弹出层（期望行业 ）stare */
+    /* 所属行业 stare*/
+	 function industry(t,name){
+		 let temp=[{name:"美容"},{name:"美发"},{name:"纹绣"},{name:"其他"}]
+		 Hero_translate_BOX(temp,name,t)
+	 }
+      /* 所属行业 end*/
+	  /* 企业性质 stare*/
+	 function nature(t,name){
+		 let temp=[{name:"国企"},{name:"民营"},{name:"合资"},{name:"外商独资"},{name:"股份制企业"},{name:"上市公司"},{name:"国家机关"},{name:"事业单位"},{name:"其他"}]
+		 Hero_translate_BOX(temp,name,t)
+	 }
+	   /* 企业性质 end*/
+	   /* 企业规模 stare*/
+	   function scale(t,name){
+		 let temp=[{name:"20人以下"},{name:"20-99人"},{name:"100-499人"},{name:"500-999人"},{name:"1000-9999人"},{name:"10000人以上"}]
+		 Hero_translate_BOX(temp,name,t)
+		   
+	   }
+	    /* 企业规模 end*/
+		/* 弹出层（企业标签 ）stare */
+		$('#specialtyLabel').on('click', function() {
+			$('.Hero_maxBox_specialty').fadeIn(200);
+			$('body').addClass('body_no')
+		})
+		
+	
+		var specialtyArr=[];
+		function specialtyBtn(t){
+			
+			let temp=$(t).children().eq(0).text()
+			if(specialtyArr.includes(temp)){
+				$(t).toggleClass('specialty_red');
+				$(t).children().eq(1).toggleClass('show')
+		         specialtyArr.splice(specialtyArr.indexOf(temp), 1)
+			}else if(specialtyArr.length<6){
+				$(t).toggleClass('specialty_red');
+				$(t).children().eq(1).toggleClass('show')
+				specialtyArr.push(temp)
+			}
+			console.log(specialtyArr)
+		}
+		$('.specialty_on').on('click', function() {
+		$("#specialtyLabel").val(specialtyArr.toString().replace(/,/g,"/"))
+			$('.Hero_maxBox_specialty').fadeOut(200);
+			$('body').removeClass()
+		})
+		/* 弹出层 end */
+	/* 图片上传stare */
+
+	var imgArr = [];
+
+		function file(t,e,num){
+			console.log(num)
+			num==undefined?num=10:num=num
+		let filesList = e.target.files;
+		$.each(filesList, (index, value) => {
+			let suffix = value.name.slice(value.name.indexOf("."))
+			if (suffix === '.jpg' || suffix === '.png' || suffix === '.jpeg') {
+				let newImg = URL.createObjectURL(value)
+				let temptotal=num;
+				temptotal--;
+	            if($(t).parent().prevAll().length>temptotal){textTip("最多支持"+num+"张图片"); return false}else{imgArr.unshift(newImg)}
+			    
+				
+				let element = '<div class="GonggeBox fileBox">' +
+					'<img src="' + newImg +
+					'" class="GonggeImg duCircleImageLi" onclick="prevImg(this)"/>' +
+					'<img src="./icon/delete.png" class="del_img" onclick="del_img(this)"/>' +
+					'</div>';
+				/* $('.upBox').before(element) */
+				$(t).parent().before(element)
+			} else {
+				textTip('图片格式错误，请重新上传');
+			}
+	
+		})
+		console.log(imgArr,"a",imgArr.length)
+		// if (imgArr.length >= 3) $(t).parent().hide()
+		let tempnum=num;
+		     tempnum--;
+			if($(t).parent().prevAll().length>tempnum){
+				$(t).parent().hide()
+			}
+		}
+	// 删除图片
+	function del_img(e) {
+		let img_url = $(e).parent().find('.GonggeImg').attr('src')
+		imgArr.splice(imgArr.indexOf(img_url), 1)
+		$(e).parent().remove();
+		console.log(imgArr,"imgArr",imgArr.length)
+		if (imgArr.length < 9) {
+			$('.upBox').show()
+		}
+	}
+	/* 图片上传end */
+	/* 图片上传end */
+	/* 点击图片预览大图stare */
+	function prevImg(that) {
+		let urls = [];
+		let imgAll = {};
+		imgAll.all = function(selector, contextElement) {
+			let nodeList,
+				list = [];
+			if (contextElement) {
+				nodeList = contextElement.querySelectorAll(selector);
+			} else {
+				nodeList = document.querySelectorAll(selector);
+			}
+			if (nodeList && nodeList.length > 0) {
+				list = Array.prototype.slice.call(nodeList);
+			}
+			return list;
+		}
+	
+		imgAll.delegate = function(imgAllel, eventType, selector, fn) {
+			if (!imgAllel) {
+				return;
+			}
+			imgAllel.addEventListener(eventType, function(e) {
+				let targets = imgAll.all(selector, imgAllel);
+				if (!targets) {
+					return;
+				}
+				// findTarget:
+				for (let i = 0; i < targets.length; i++) {
+					let imgAllnode = e.target;
+					while (imgAllnode) {
+						if (imgAllnode == targets[i]) {
+							fn.call(imgAllnode, e);
+							break; //findTarget;
+						}
+						imgAllnode = imgAllnode.parentNode;
+						if (imgAllnode == imgAllel) {
+							break;
+						}
+					}
+				}
+			}, false);
+		};
+	
+		let imgMain = $(that).parent().parent().find('.duCircleImageLi')
+		console.log(imgMain, "imgMain")
+		$.each(imgMain, function(index, imgItem) { //index:索引      obj:循环的每个元素
+			urls[index] = $(imgItem).attr('src')
+		});
+	
+		imgAll.delegate($(that).parent()[0], 'click', '.duCircleImageLi', function() {
+			let current = $(that).attr('src');
+	
+			let obj = {
+				urls,
+				current
+			};
+			previewImage.start(obj);
+		});
+	}
+	/* 点击图片预览大图end */
+	/* 作品介绍视频、图片处理 end */
+	</script>
+	<style>
+	/* 覆盖max.cssy样式stare */
+	.max_box{margin: 0.15rem 0.1rem;}
+	.inserticon {
+	    width: 0.26rem;
+	    height: 0.26rem;
+	    position: absolute;
+	    left: 0.2rem;
+	    top: 0.06rem;
+	}
+	.selectInput {
+	    height: 0.6rem;
+	    background: #F5F5F7;
+	    border: none;
+	    border-radius: 0.4rem;
+	    color: #333333;
+	    outline: none;
+	    font-size: 0.28rem;
+	    position: relative;
+	    padding: 0px 0.55rem;
+	    flex: 1;
+	    width: 3.8rem;
+	}
+	.inserticon_del {
+	    width: 0.26rem;
+	    height: 0.26rem;
+	    position: absolute;
+	    left: 4.5rem;
+	    top: 0.06rem;
+	    display: none;
+	}
+	
+	/* 覆盖max.cssy样式end */
+	 .etr_logo{
+		     display: flex;
+		     flex-direction: column;
+		     justify-content: center;
+		     align-items: flex-start;
+		     line-height: 0.5rem;
+	 }
+		.title_left {
+			font-weight: bold;
+			text-align: left;
+			padding-left: 0.4rem;
+		}
+
+		.translate_red,.specialty_red{
+			background: #fff5f8 !important;
+			border: #FC3964 solid 1px !important;
+			color: #FC3964 !important;
+		}
+		.reason_red{
+			    background: #FFF5F8;
+				    color: #FC3964;
+		}
+
+		.translate,.specialty{
+			height: 0.72rem;
+			line-height: 0.72rem;
+			width: 2rem;
+			text-align: center;
+			border: #E4E4E8 solid 1px;
+			border-radius: 0.1rem;
+			margin: 0.12rem 0;
+			position: relative;
+		}
+
+		.experience_img {
+			width: 0.24rem;
+			height: 0.24rem;
+			position: absolute;
+			top: 0.49rem;
+			right: -0.01rem;
+			visibility: hidden;
+		}
+		.show{
+			visibility: visible ;
+		}
+		.categoriesBox,.specialtyBox{
+			flex-wrap: wrap;justify-content: space-evenly;padding: 0 0.4rem;
+		}
+		.switchBtn{
+			transform: translateX(-110%);
+			
+		}
+		.switchBtnTwo{
+			transform: translateX(110%);
+		}
+		.firstBox{transition: all 0.3s;}
+		.secondBox{
+			transition: all 0.3s;
+			display:none;
+			position: absolute;
+			    width: 100%;
+			    top: 0;
+			/* 	z-index: 1; */
+		}
+		/* ============== */
+         .openSwitch{
+			     padding-right: 0.35rem;
+				 position: relative;
+				   /* .input_select:checked+.input_select_text .ul_body:after {transform: rotate(-135deg);} */
+				 
+		 }
+        
+		/* ============== */
+	</style>
+</html>

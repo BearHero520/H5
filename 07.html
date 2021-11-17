@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>插件集合</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="./css/max.css" /><!-- 主体样式 -->
+	<link rel="stylesheet" type="text/css" href="./css/mui.picker.min.css" />
+	<body>
+       <div class="max_box">
+		  <div class="flex h_45 lower_line">
+		  	<div class="f_15 c_h_66 input_text">时间选择</div>
+		  	<div class="c_r_FC f_15 ">*</div>
+		  	<div class="guide_icon">
+		  		<input class="no_style_input f_15 c_h_33" onclick="selectTime(this,'出生年月')" type="text" name="city"
+		  			placeholder="请选择" id="datatime" readonly />
+		  	</div>
+		  </div>
+		  
+		  <div class="flex h_45 lower_line">
+		  	<div class="f_15 c_h_66 input_text">单选滑动</div>
+		  	<div class="c_r_FC f_15 ">*</div>
+		  	<div class="guide_icon">
+		  		<input class="no_style_input f_15 c_h_33" id="Hero_two" onclick="selectintention(this,'单选滑动')" type="text" name="city" placeholder="请选择"
+		  			readonly />
+		  	</div>
+		  </div>
+		  
+		  <div class="flex h_45 lower_line">
+		  	<div class="f_15 c_h_66 input_text">分类选择</div>
+		  	<div class="c_r_FC f_15 ">*</div>
+		  	<div class="guide_icon">
+		  		<input class="no_style_input f_15 c_h_33" id="choice" type="text"  placeholder="请选择" readonly />
+		  	</div>
+		  </div>
+		  
+		  <div class="flex h_45 lower_line">
+		  	<div class="f_15 c_h_66 input_text">期望薪酬</div>
+		  	<div class="c_r_FC f_15 ">*</div>
+		  	<div class="guide_icon">
+		  		<input class="no_style_input f_15 c_h_33" onclick="selectSalary(this,'期望薪酬')" type="text" placeholder="请选择" readonly />
+		  	</div>
+		  </div>
+	  
+	   </div>
+	   
+	   <div class="max_box">
+	   	<div class="h_45 lower_line">
+	   		<div class="f_16 c_h_33 input_text" onclick="show()">点我出现对话框</div>
+	   	</div>
+	   </div>
+	   <div class="max_box">
+	   	<div class="h_45 lower_line">
+	   		<div class="f_16 c_h_33 input_text" onclick="showtwo()">点我出现没有标题带icon的对话框</div>
+	   	</div>
+	   </div>
+	   <div class="max_box">
+	   	<div class="h_45 lower_line">
+	   		<div class="f_16 c_h_33 input_text" onclick="showfour()">轻弹框</div>
+	   	</div>
+	   </div>
+	   <div class="max_box">
+	   	<div class="h_45 lower_line">
+	   		<div class="f_16 c_h_33 input_text" onclick="showfive()">强提醒</div>
+	   	</div>
+	   </div>
+	   
+	</body>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/max.js"></script><!-- 自己写的一些js 包含弹窗合并了 rem转xp 方法等 -->
+	<script>window.FastClick = true;</script><!-- 阻止mui影响单选框乱跳 -->
+	<script src="./js/mui.min.js"></script><!-- 此版是魔改版，修改了部分样式和功能比如引入mui后点击input乱跳问题 -->
+	<script src="./js/mui.picker.min.js"></script><!-- mui滑动选择器 -->
+	<script src="./js/mui_city.js"></script><!-- mui 城市内容的插件 -->
+	<script>
+	/* 时间选择stare*/
+	function selectTime(e,name) {
+		HeroFun.addtimeAndSlideBox(name);//配合mui使用
+		/* $('.HeroMax div span').text(name)
+		$('.HeroMax').fadeIn(200); */
+		var time  = new mui.DtPicker({
+			type: 'date',
+			beginDate: new Date("1970-01-01"), //设置开始日期
+			endDate: new Date(), //设置结束日期
+		}).show(function(selectItems) {
+			$(e).val(selectItems.value)
+			$('.HeroMax').fadeOut(200);
+			clean_up_mui();//清除mui残留
+		});
+	}
+	/* 时间范围选择end*/
+	
+	/* 弹出层2（求职意向） stare */
+	function selectintention(e,name){
+		HeroFun.addtimeAndSlideBox(name);//配合mui使用
+	/* 	$('.HeroMax div span').text(name)
+		$('.HeroMax').fadeIn(200); */
+		$('body').addClass('body_no')
+		var picker = new mui.PopPicker();
+		picker.setData([{
+		    value: "0",
+		    text: "离职-随时到岗",
+		}, {
+		    value: "1",
+		    text: "在职-月内到岗"
+		}, {
+		    value: "2",
+		    text: "在职-考虑机会"
+		}, {
+		    value: "3",
+		    text: "在职-暂不考虑"
+		}])
+		picker.pickers[0].setSelectedIndex(0, 2000);
+		picker.show(function(SelectedItem) {
+		    $(e).val(SelectedItem[0].text)
+			$('.HeroMax').fadeOut(200);
+			HeroFun.clean_up_mui();//清除mui残留
+		})
+	}
+	/* 弹出层2 end */
+	
+	/* 职位选择stare */
+	$('#choice').on('click', function() {
+		/* $('.Hero_maxBox_choice').fadeIn(200); */
+		$('body').addClass('body_no')
+		/* ================ */
+		var HeroArrofchoice=[
+			    {
+				type:"美容类",
+				value:"1",
+				son:[
+					{name:"不限",value:"4"},
+					{name:"美发学徒",value:"5"},
+					{name:"美容师",value:"6"},
+					{name:"美容导师",value:"7"},
+					{name:"美容顾问",value:"8"},
+					],
+				},
+				{
+				type:"美发类",
+				value:"2",
+				son:[
+					{name:"不限",value:"9"},
+					{name:"搞事情",value:"10"},
+					{name:"村上春树",value:"11"},
+					{name:"哈哈哈哈",value:"12"},
+					{name:"OK导师",value:"13"},
+					{name:"就是玩",value:"14"},
+					],
+				},
+				{
+				type:"纹绣类",
+				value:"3",
+				son:[
+					{name:"树看",value:"15"},
+					{name:"测试1",value:"16"},
+					{name:"测试2",value:"17"},
+					{name:"测试3",value:"18"},
+					{name:"测试4",value:"19"},
+					{name:"测试5",value:"20"},
+					{name:"测试6",value:"21"},
+					{name:"测试7",value:"22"},
+					],
+				},
+			]
+			HeroFun.handleArr(HeroArrofchoice,this,5,'测试');
+			console.log($(this).data('all'),"包含选中父节点和子节点id")
+			console.log($(this).data('value'),"包含已选择的子类id")
+			//参数说明
+			//HeroArrofchoice  来自外部的数组（必须）
+			//this 对象本身（必须）
+			//5 表示可以最多选几个（必须）
+			//'测试' 不放值的话默认‘分类选择’（非必须）
+	})
+	
+	/* 弹出层2（期望薪资） stare */
+	function selectSalary(e,name){
+		HeroFun.addtimeAndSlideBox(name);//配合mui使用
+		/* $('.HeroMax div span').text(name)
+		$('.HeroMax').fadeIn(200); */
+		$('body').addClass('body_no')
+		let temp=[];
+		for(var i=1;i<50;i++){
+			let rom={}
+			let childBox=[];
+			rom.value=i;
+			rom.text=i+'K';
+			for(let a=i+1;a<=50;a++){
+				let child={}
+				child.value=a;
+				child.text=a+'K';
+				childBox.push(child)
+			}
+			rom.children=childBox;
+			temp.push(rom)
+		}
+		var picker = new mui.PopPicker({
+		    layer: 2
+		});
+		    picker.setData(temp)
+		picker.pickers[0].setSelectedIndex(1);
+		picker.pickers[1].setSelectedIndex(7);
+		picker.show(function(SelectedItem) {
+			console.log(SelectedItem[0])
+			$(e).val(SelectedItem[0].text+' ~ '+SelectedItem[1].text)
+			$('.HeroMax').fadeOut(200);
+			HeroFun.clean_up_mui();//清除mui残留
+		})
+		   
+		
+	}
+	/* 弹出层 end */
+	
+	function show() {
+		/* 自义定弹窗 */
+		dialog('text', '标题', '今天天气很好', '取消', '确定', 'del_mask()');
+		//使用方法dialog("带标题的text状态",'标题','提示内容','取消按钮内容','确定按钮内容','点击确认按钮后要执行的方法')
+	}
+	
+	function showtwo() {
+		/* 自义定弹窗 */
+		dialog('icon', '支付失败', '取消', '确定', 'del_mask()');
+		//使用方法dialog('带×的图标的','内容','取消按钮内容','确定按钮内容','点击确认按钮后要执行的方法')
+	}
+	
+	function showfour() {
+		textTip("支付成功")
+	}
+	
+	function showfive(){
+		dialog('Qtext', '支付失败','确定');
+	}
+	
+	</script>
+	<style>
+
+	</style>
+</html>

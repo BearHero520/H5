@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>优惠价</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="./css/max.css" /><!-- 主体样式 -->
+	<body>
+		<div class="yhBox">
+			<div class="h_95 flex_1 bg_imgtwo flex_direction">
+				<div class="flex">
+					<div class="money"><span class="f_28 c_r_FC">¥</span><span class="f_28 c_r_FC">200</span></div>
+					<span class="f_14 c_h_33 moneytitle"> 元人才津贴 </span>
+				</div>
+				<div class="flex_direction" style="line-height: 0.35rem;">
+					<div class="f_12 c_h_66">就职满3个月可领</div>
+					<div class="f_12 c_h_66 ellipsis" style="width: 2.7rem;">广州大树健康测试测试测试测试管理中心</div>
+				</div>
+				<div class="stateredBox c_r_FC">未到时间领取</div>
+				<div class="stateval f_29 c_h_99">领</div>
+			</div>
+		</div>
+		<div class="yhBox">
+			<div class="h_95 flex_1 bg_img flex_direction">
+				<div class="flex">
+					<div class="money"><span class="f_28 c_r_FC">¥</span><span class="f_28 c_r_FC">200</span></div>
+					<span class="f_14 c_h_33 moneytitle"> 元人才津贴 </span>
+				</div>
+				<div class="flex_direction" style="line-height: 0.35rem;">
+					<div class="f_12 c_h_66">就职满3个月可领</div>
+					<div class="f_12 c_h_66 ellipsis" style="width: 2.7rem;">广州大树健康管理中心</div>
+				</div>
+				<!-- <div class="stateredBox c_r_FC">未到时间领取</div> -->
+				<div class="stateyellowBox c_r_FC">已到时间领取</div>
+				<div class="stateval f_29 c_r_FC">领</div>
+			</div>
+		</div>
+		<div class="yhBox">
+			<div class="h_95 flex_1 bg_imgtwo flex_direction">
+				<div class="flex">
+					<div class="money"><span class="f_28 c_r_FC">¥</span><span class="f_28 c_r_FC">200</span></div>
+					<span class="f_14 c_h_33 moneytitle"> 元人才津贴 </span>
+				</div>
+				<div class="flex_direction" style="line-height: 0.35rem;">
+					<div class="f_12 c_h_66">就职满3个月可领</div>
+					<div class="f_12 c_h_66 ellipsis" style="width: 2.7rem;">广州大树健康管理中心</div>
+				</div>
+				<!-- <div class="stateredBox c_r_FC">未到时间领取</div> -->
+				<div class="statehBox c_r_FC">已领取</div>
+				<div class="stateval f_29 c_h_99">领</div>
+			</div>
+		</div>
+	</body>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/max.js"></script>
+	<style>
+	    body{
+			padding: 0;
+		}
+		.yhBox {
+		display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    max-width: 7.5rem;
+		    left: 0;
+		    right: 0;
+		    margin: auto;
+		    padding: 0.1rem 0.1rem 0 0.1rem;
+		    box-sizing: border-box;
+		}
+
+		.bg_img {
+			position: relative;
+			background: url(img/juan.svg) no-repeat;
+			background-size: 100%;
+			width: 100%;
+			padding-left: 0.3rem;
+			box-sizing: border-box;
+			line-height: 0.9rem;
+		}
+		.bg_imgtwo{
+			position: relative;
+			background: url(img/huijuan.svg) no-repeat;
+			background-size: 100%;
+			width: 100%;
+			padding-left: 0.3rem;
+			box-sizing: border-box;
+			line-height: 0.9rem;
+		}
+
+		.money span {
+			font-weight: bold;
+		}
+
+		.moneytitle {
+			margin-left: 0.08rem;
+			display: flex;
+			    align-items: center;
+		}
+
+		.stateredBox {
+			position:absolute;
+			height: 0.36rem;
+			line-height: 0.36rem;
+			background: #FFF5F8;
+			padding: 0 0.1rem;
+			transform: scale(0.8);
+			transform-origin: 0 0;
+			right: 2.3rem;
+			bottom: 0.2rem;
+		}
+		.stateval{position: absolute;
+    right: 0.95rem;
+    top: 0.45rem;}
+
+		.stateyellowBox {
+			background: #FFFBF5;
+			color: #FF9C2C;
+			position:absolute;
+			height: 0.36rem;
+			line-height: 0.36rem;
+			background: #FFF5F8;
+			padding: 0 0.1rem;
+			transform: scale(0.8);
+			transform-origin: 0 0;
+			right: 2.3rem;
+			bottom: 0.2rem;
+		}
+
+		.statehBox {
+			background: #F5F5F5;
+			color: #999999;
+			position:absolute;
+			height: 0.36rem;
+			line-height: 0.36rem;
+			background: #FFF5F8;
+			padding: 0 0.1rem;
+			transform: scale(0.8);
+			transform-origin: 0 0;
+			right: 2.45rem;
+			bottom: 0.2rem;
+		}
+	</style>
+</html>
