@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 10 10">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="SVGID" width="10" height="10" fill="#fc3964"/>
+    </clipPath>
+  </defs>
+  <g id="组_11" data-name="组 11" transform="translate(113 -10.89)">
+    <g id="组_10" data-name="组 10" transform="translate(-113 10.89)">
+      <g id="组_9" data-name="组 9" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="路径_3" data-name="路径 3" d="M-103.875,15.6h-3.5v-3.5a.748.748,0,0,0-.748-.747.748.748,0,0,0-.748.747v3.5h-3.5a.748.748,0,0,0-.748.747.748.748,0,0,0,.748.747h3.5v3.5a.748.748,0,0,0,.748.747.748.748,0,0,0,.748-.747V17.1h3.5a.748.748,0,0,0,.748-.747.748.748,0,0,0-.748-.747Zm0,0" transform="translate(113.119 -11.353)" fill="#fc3964"/>
+      </g>
+    </g>
+  </g>
+</svg>

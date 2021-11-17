@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: gray;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="多边形_1693" data-name="多边形 1693" class="cls-1" d="M3084,6711l-10,.01,10.01-10.01Z" transform="translate(-3074 -6701)"/>
+</svg>
